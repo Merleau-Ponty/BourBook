@@ -33,7 +33,7 @@ public class BookList extends javax.swing.JPanel {
     JLabelTitleBookList = new javax.swing.JLabel();
     jTextFieldSearchTitle = new javax.swing.JTextField();
     jLabelTitleSearch = new javax.swing.JLabel();
-    jTextFieldSearchAutor = new javax.swing.JTextField();
+    jTextFieldSearchAuthor = new javax.swing.JTextField();
     jLabelSearchAutor = new javax.swing.JLabel();
     jScrollPane1 = new javax.swing.JScrollPane();
     jTableBookList = new javax.swing.JTable();
@@ -66,10 +66,10 @@ public class BookList extends javax.swing.JPanel {
     jLabelTitleSearch.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
     jLabelTitleSearch.setName("TESTNAME"); // NOI18N
 
-    jTextFieldSearchAutor.setText("jTextFieldSearchAutor");
-    jTextFieldSearchAutor.addActionListener(new java.awt.event.ActionListener() {
+    jTextFieldSearchAuthor.setText("jTextFieldSearchAuthor");
+    jTextFieldSearchAuthor.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
-        jTextFieldSearchAutorActionPerformed(evt);
+        jTextFieldSearchAuthorActionPerformed(evt);
       }
     });
 
@@ -105,7 +105,7 @@ public class BookList extends javax.swing.JPanel {
           .addComponent(jTextFieldSearchTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
         .addGap(63, 63, 63)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addComponent(jTextFieldSearchAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jTextFieldSearchAuthor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(jLabelSearchAutor)
           .addComponent(JLabelTitleBookList))
         .addGap(72, 72, 72)
@@ -127,7 +127,7 @@ public class BookList extends javax.swing.JPanel {
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
           .addComponent(jTextFieldSearchTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-          .addComponent(jTextFieldSearchAutor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jTextFieldSearchAuthor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(jComboBoxSearchCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         .addGap(41, 41, 41)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -140,9 +140,9 @@ public class BookList extends javax.swing.JPanel {
     // TODO add your handling code here:
   }//GEN-LAST:event_jTextFieldSearchTitleActionPerformed
 
-  private void jTextFieldSearchAutorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSearchAutorActionPerformed
+  private void jTextFieldSearchAuthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSearchAuthorActionPerformed
     // TODO add your handling code here:
-  }//GEN-LAST:event_jTextFieldSearchAutorActionPerformed
+  }//GEN-LAST:event_jTextFieldSearchAuthorActionPerformed
 
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -153,7 +153,7 @@ public class BookList extends javax.swing.JPanel {
   private javax.swing.JLabel jLabelTitleSearch;
   private javax.swing.JScrollPane jScrollPane1;
   private javax.swing.JTable jTableBookList;
-  private javax.swing.JTextField jTextFieldSearchAutor;
+  private javax.swing.JTextField jTextFieldSearchAuthor;
   private javax.swing.JTextField jTextFieldSearchTitle;
   private java.awt.Panel panel1;
   // End of variables declaration//GEN-END:variables
