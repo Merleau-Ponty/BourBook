@@ -27,6 +27,7 @@ public class MenuBar extends javax.swing.JFrame {
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
+    leJPanel = new javax.swing.JPanel();
     jMenuBar1 = new javax.swing.JMenuBar();
     jMenu6 = new javax.swing.JMenu();
     jMenu2 = new javax.swing.JMenu();
@@ -41,7 +42,17 @@ public class MenuBar extends javax.swing.JFrame {
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     setAutoRequestFocus(false);
-    setPreferredSize(new java.awt.Dimension(0, 0));
+
+    javax.swing.GroupLayout leJPanelLayout = new javax.swing.GroupLayout(leJPanel);
+    leJPanel.setLayout(leJPanelLayout);
+    leJPanelLayout.setHorizontalGroup(
+      leJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGap(0, 731, Short.MAX_VALUE)
+    );
+    leJPanelLayout.setVerticalGroup(
+      leJPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+      .addGap(0, 445, Short.MAX_VALUE)
+    );
 
     jMenu6.setText("Recherche");
     jMenuBar1.add(jMenu6);
@@ -81,11 +92,11 @@ public class MenuBar extends javax.swing.JFrame {
     getContentPane().setLayout(layout);
     layout.setHorizontalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 731, Short.MAX_VALUE)
+      .addComponent(leJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
     );
     layout.setVerticalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-      .addGap(0, 445, Short.MAX_VALUE)
+      .addComponent(leJPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
     );
 
     pack();
@@ -139,5 +150,6 @@ public class MenuBar extends javax.swing.JFrame {
   private javax.swing.JMenu jMenu8;
   private javax.swing.JMenu jMenu9;
   private javax.swing.JMenuBar jMenuBar1;
+  private javax.swing.JPanel leJPanel;
   // End of variables declaration//GEN-END:variables
 }
