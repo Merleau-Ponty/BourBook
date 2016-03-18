@@ -38,6 +38,8 @@ public class BookDetail extends javax.swing.JPanel {
     jLabelResume = new javax.swing.JLabel();
     jScrollPane1 = new javax.swing.JScrollPane();
     jTextArea1 = new javax.swing.JTextArea();
+    jButtonLoan = new javax.swing.JButton();
+    jButtonReturn = new javax.swing.JButton();
 
     jLabelNbPages.setText("jLabelNbPages");
     jLabelNbPages.setToolTipText("");
@@ -82,6 +84,15 @@ public class BookDetail extends javax.swing.JPanel {
     jTextArea1.setRows(5);
     jScrollPane1.setViewportView(jTextArea1);
 
+    jButtonLoan.setText("jButtonLoan");
+    jButtonLoan.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButtonLoanActionPerformed(evt);
+      }
+    });
+
+    jButtonReturn.setText("jButtonReturn");
+
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
     this.setLayout(layout);
     layout.setHorizontalGroup(
@@ -108,14 +119,22 @@ public class BookDetail extends javax.swing.JPanel {
                 .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                   .addComponent(jTextFieldNbCopies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                  .addComponent(jLabel1))))
+                  .addComponent(jLabel1)))
+              .addGroup(layout.createSequentialGroup()
+                .addComponent(jButtonLoan)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonReturn)))
             .addGap(0, 0, Short.MAX_VALUE)))
         .addContainerGap())
     );
     layout.setVerticalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(layout.createSequentialGroup()
-        .addGap(47, 47, 47)
+        .addGap(13, 13, 13)
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(jButtonLoan)
+          .addComponent(jButtonReturn))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
           .addGroup(layout.createSequentialGroup()
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -160,8 +179,14 @@ public class BookDetail extends javax.swing.JPanel {
     // TODO add your handling code here:
   }//GEN-LAST:event_jTextFieldTitleActionPerformed
 
+  private void jButtonLoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoanActionPerformed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_jButtonLoanActionPerformed
+
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
+  private javax.swing.JButton jButtonLoan;
+  private javax.swing.JButton jButtonReturn;
   private javax.swing.JLabel jLabel1;
   private javax.swing.JLabel jLabelISBN;
   private javax.swing.JLabel jLabelNbPages;
