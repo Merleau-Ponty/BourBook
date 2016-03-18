@@ -1,6 +1,3 @@
-DROP DATABASE IF EXISTS bourbook;
-
-CREATE DATABASE IF NOT EXISTS bourbook;
 USE bourbook;
 # -----------------------------------------------------------------------------
 #       TABLE : USER
