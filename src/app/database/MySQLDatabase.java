@@ -23,11 +23,11 @@ public class MySQLDatabase extends Database{
 		
 		/* Chargement du driver JDBC pour MySQL */
         System.out.println( "Chargement du driver..." );
-        Class.forName( "com.mysql.jdbc.Driver" );
+        Class.forName("com.mysql.jdbc.Driver");
         System.out.println("Driver chargé !" );
 	}
 
-	private Connection getConnection(){
+	public Connection getConnection(){
 		if(connection == null){
 			try {
 				connection = DriverManager.getConnection(db_url, db_user, db_password);

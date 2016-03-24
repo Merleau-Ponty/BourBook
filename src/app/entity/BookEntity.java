@@ -2,7 +2,7 @@ package app.entity;
 
 public class BookEntity extends Entity{
 
-	private int idBook;
+	private int id;
 	private int idAuthor;
 	private int idCategory;
 	private String resume;
@@ -10,8 +10,8 @@ public class BookEntity extends Entity{
 	private String title;
 	private int nbPages;
 	
-	public int getIdBook() {
-		return idBook;
+	public int getId() {
+		return id;
 	}
 	public String getResume() {
 		return resume;
@@ -25,13 +25,37 @@ public class BookEntity extends Entity{
 	public int getNbPages() {
 		return nbPages;
 	}
-	
 	public int getIdAuthor() {
 		return idAuthor;
 	}
-
 	public int getIdCategory() {
 		return idCategory;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	public void setIdAuthor(int idAuthor) {
+		this.idAuthor = idAuthor;
+	}
+	public void setIdCategory(int idCategory) {
+		this.idCategory = idCategory;
+	}
+	public void setResume(String resume) {
+		this.resume = resume;
+	}
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
+	}
+	public void setTitle(String title) {
+		this.title = title;
+	}
+	public void setNbPages(int nbPages) {
+		this.nbPages = nbPages;
+	}
+	
+	@Override
+	public String toString() {
+		return "BookEntity [title=" + title + ", isbn=" + isbn + ", nbPages=" + nbPages + "]";
 	}
 	
 	/**
