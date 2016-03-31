@@ -11,12 +11,17 @@ package app.view;
  */
 public class AuthorCreate extends javax.swing.JPanel {
 
+	MenuBar fen;
 	/**
 	 * Creates new form AuthorCreate
+	 * @param fen
 	 */
-	public AuthorCreate() {
+	public AuthorCreate(MenuBar fen) {
+		super();
 		initComponents();
+		this.fen=fen;	 
 	}
+
 
 	/**
 	 * This method is called from within the constructor to initialize the form.

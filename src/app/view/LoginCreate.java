@@ -10,13 +10,18 @@ package app.view;
  * @author Tom
  */
 public class LoginCreate extends javax.swing.JPanel {
+	MenuBar fen;
 
 	/**
 	 * Creates new form LoginCreate
+	 * @param fen
 	 */
-	public LoginCreate() {
+	public LoginCreate(MenuBar fen) {
+		super();
 		initComponents();
+		this.fen=fen;	 
 	}
+
 
 	/**
 	 * This method is called from within the constructor to initialize the form.

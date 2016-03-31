@@ -185,7 +185,6 @@
     <Component class="javax.swing.JButton" name="jButtonRetour">
       <Properties>
         <Property name="text" type="java.lang.String" value="jButtonRetour"/>
-        <Property name="actionCommand" type="java.lang.String" value="jButtonRetour"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonCreer">

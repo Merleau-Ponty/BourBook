@@ -10,13 +10,18 @@ package app.view;
  * @author Tom
  */
 public class CategoryList extends javax.swing.JPanel {
+	MenuBar fen;
 
 	/**
 	 * Creates new form CategoryList
+	 * @param fen
 	 */
-	public CategoryList() {
+	public CategoryList(MenuBar fen) {
+		super();
 		initComponents();
+		this.fen=fen;	 
 	}
+
 
 	/**
 	 * This method is called from within the constructor to initialize the form.

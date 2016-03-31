@@ -5,17 +5,69 @@
  */
 package app.view;
 
+
 /**
  *
  * @author Tom
  */
 public class MenuBar extends javax.swing.JFrame {
 
+	AuthorCreate authorCreate = new AuthorCreate(this);
+	BookCreate bookCreate = new BookCreate(this);
+	BookDetail bookDetail = new BookDetail(this);
+	BookList bookList = new BookList(this);
+	CategoryList categoryList = new CategoryList(this);
+	Login login = new Login(this);
+	LoginCreate loginCreate = new LoginCreate(this);
+	UserCreate userCreate = new UserCreate(this);
+	UserList userList = new UserList(this);
+	
+	
+
 	/**
 	 * Creates new form listeLivre
 	 */
 	public MenuBar() {
 		initComponents();
+		//this.setContentPane(p);
+
+	}
+
+	public void change(int i) {
+		switch (i) {
+			case 1:
+				this.setContentPane(authorCreate);
+				System.out.println("case 1 done : authorCreate");
+				break;
+			case 2:
+				this.setContentPane(bookCreate);
+				System.out.println("case 2 done : bookCreate");
+			case 3:
+				this.setContentPane(bookDetail);
+				System.out.println("case 3 done : bookDetail");
+			case 4:
+				this.setContentPane(bookList);
+				System.out.println("case 4 done : bookList");
+			case 5:
+				this.setContentPane(categoryList);
+				System.out.println("case 5 done : categoryList");
+			case 6:
+				this.setContentPane(login);
+				System.out.println("case 6 done : login");
+			case 7:
+				this.setContentPane(loginCreate);
+				System.out.println("case 7 done : loginCreate");
+			case 8:
+				this.setContentPane(userCreate);
+				System.out.println("case 8 done : userCreate");
+			case 9:
+				this.setContentPane(userList);
+				System.out.println("case 9 done : userList");
+			default:
+				System.out.println("ERREUR");
+				break;
+
+		}
 	}
 
 	/**
@@ -27,6 +79,7 @@ public class MenuBar extends javax.swing.JFrame {
   // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
   private void initComponents() {
 
+    jMenuItem1 = new javax.swing.JMenuItem();
     leJPanel = new javax.swing.JPanel();
     jMenuBar1 = new javax.swing.JMenuBar();
     jMenu6 = new javax.swing.JMenu();
@@ -36,9 +89,12 @@ public class MenuBar extends javax.swing.JFrame {
     jMenu10 = new javax.swing.JMenu();
     jMenu4 = new javax.swing.JMenu();
     jMenu5 = new javax.swing.JMenu();
+    jMenuItem2 = new javax.swing.JMenuItem();
     jMenu11 = new javax.swing.JMenu();
     jMenu13 = new javax.swing.JMenu();
     jMenu17 = new javax.swing.JMenu();
+
+    jMenuItem1.setText("jMenuItem1");
 
     setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
     setAutoRequestFocus(false);
@@ -73,6 +129,15 @@ public class MenuBar extends javax.swing.JFrame {
     jMenu4.setText("Administration");
 
     jMenu5.setText("Livre");
+
+    jMenuItem2.setText("Lister");
+    jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jMenuItem2ActionPerformed(evt);
+      }
+    });
+    jMenu5.add(jMenuItem2);
+
     jMenu4.add(jMenu5);
 
     jMenu11.setText("Autheur");
@@ -102,12 +167,16 @@ public class MenuBar extends javax.swing.JFrame {
     pack();
   }// </editor-fold>//GEN-END:initComponents
 
+  private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_jMenuItem2ActionPerformed
+
 	/**
 	 * @param args the command line arguments
 	 */
 	public static void main(String args[]) {
 		/* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+		//<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
 		 * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
 		 */
@@ -128,14 +197,17 @@ public class MenuBar extends javax.swing.JFrame {
 			java.util.logging.Logger.getLogger(MenuBar.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
 		}
         //</editor-fold>
-        //</editor-fold>
+		//</editor-fold>
 
 		/* Create and display the form */
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
-				new MenuBar().setVisible(true);
+				MenuBar menuB = new MenuBar();
+				menuB.setVisible(true);
+				menuB.change(2);
 			}
 		});
+
 	}
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -150,6 +222,9 @@ public class MenuBar extends javax.swing.JFrame {
   private javax.swing.JMenu jMenu8;
   private javax.swing.JMenu jMenu9;
   private javax.swing.JMenuBar jMenuBar1;
+  private javax.swing.JMenuItem jMenuItem1;
+  private javax.swing.JMenuItem jMenuItem2;
   private javax.swing.JPanel leJPanel;
   // End of variables declaration//GEN-END:variables
+
 }

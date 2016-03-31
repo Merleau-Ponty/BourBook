@@ -11,11 +11,16 @@ package app.view;
  */
 public class BookDetail extends javax.swing.JPanel {
 
+	MenuBar fen;  
+	
 	/**
 	 * Creates new form BookDetail
+	 * @param fen
 	 */
-	public BookDetail() {
+	public BookDetail(MenuBar fen) {
+		super();
 		initComponents();
+		this.fen=fen;	 
 	}
 
 	/**

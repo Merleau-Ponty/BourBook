@@ -10,13 +10,18 @@ package app.view;
  * @author Tom
  */
 public class UserList extends javax.swing.JPanel {
+	MenuBar fen;
 
 	/**
 	 * Creates new form UserList
+	 * @param fen
 	 */
-	public UserList() {
+	public UserList(MenuBar fen) {
+		super();
 		initComponents();
+		this.fen=fen;	 
 	}
+
 
 	/**
 	 * This method is called from within the constructor to initialize the form.

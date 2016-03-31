@@ -10,12 +10,16 @@ package app.view;
  * @author Tom
  */
 public class UserCreate extends javax.swing.JPanel {
+	MenuBar fen;
 
 	/**
 	 * Creates new form User
+	 * @param fen
 	 */
-	public UserCreate() {
+	public UserCreate(MenuBar fen) {
+		super();
 		initComponents();
+		this.fen=fen;	 
 	}
 
 	/**

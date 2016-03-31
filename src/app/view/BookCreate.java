@@ -10,13 +10,18 @@ package app.view;
  * @author Tom
  */
 public class BookCreate extends javax.swing.JPanel {
+	MenuBar fen;
 
 	/**
 	 * Creates new form BookDetail
+	 * @param fen
 	 */
-	public BookCreate() {
+	public BookCreate(MenuBar fen) {
+		super();
 		initComponents();
+		this.fen=fen;	 
 	}
+
 
 	/**
 	 * This method is called from within the constructor to initialize the form.
