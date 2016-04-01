@@ -96,8 +96,6 @@ public class MenuBar extends javax.swing.JFrame {
     jMenu6 = new javax.swing.JMenu();
     jMenu2 = new javax.swing.JMenu();
     jMenu8 = new javax.swing.JMenu();
-    jMenu9 = new javax.swing.JMenu();
-    jMenu10 = new javax.swing.JMenu();
     jMenu4 = new javax.swing.JMenu();
     jMenu5 = new javax.swing.JMenu();
     jMenuItem2 = new javax.swing.JMenuItem();
@@ -128,13 +126,6 @@ public class MenuBar extends javax.swing.JFrame {
     jMenuBar1.add(jMenu2);
 
     jMenu8.setText("Connexion");
-
-    jMenu9.setText("S'inscrire");
-    jMenu8.add(jMenu9);
-
-    jMenu10.setText("Se connecter");
-    jMenu8.add(jMenu10);
-
     jMenuBar1.add(jMenu8);
 
     jMenu4.setText("Administration");
@@ -222,7 +213,6 @@ public class MenuBar extends javax.swing.JFrame {
 	}
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JMenu jMenu10;
   private javax.swing.JMenu jMenu11;
   private javax.swing.JMenu jMenu13;
   private javax.swing.JMenu jMenu17;
@@ -231,7 +221,6 @@ public class MenuBar extends javax.swing.JFrame {
   private javax.swing.JMenu jMenu5;
   private javax.swing.JMenu jMenu6;
   private javax.swing.JMenu jMenu8;
-  private javax.swing.JMenu jMenu9;
   private javax.swing.JMenuBar jMenuBar1;
   private javax.swing.JMenuItem jMenuItem1;
   private javax.swing.JMenuItem jMenuItem2;

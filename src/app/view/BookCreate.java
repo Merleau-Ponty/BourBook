@@ -5,23 +5,28 @@
  */
 package app.view;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author Tom
  */
-public class BookCreate extends javax.swing.JPanel {
+public class BookCreate extends javax.swing.JPanel implements ActionListener {
+
 	MenuBar fen;
 
 	/**
 	 * Creates new form BookDetail
+	 *
 	 * @param fen
 	 */
 	public BookCreate(MenuBar fen) {
 		super();
 		initComponents();
-		this.fen=fen;	 
+		this.fen = fen;
+		jButtonRetour.addActionListener(this);
 	}
-
 
 	/**
 	 * This method is called from within the constructor to initialize the form.
@@ -92,8 +97,12 @@ public class BookCreate extends javax.swing.JPanel {
       }
     });
 
-    jButtonRetour.setText("jButtonRetour");
-    jButtonRetour.setActionCommand("jButtonRetour");
+    jButtonRetour.setText("Retour");
+    jButtonRetour.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButtonRetourActionPerformed(evt);
+      }
+    });
 
     jButtonCreer.setText("jButtonCreer");
 
@@ -167,20 +176,24 @@ public class BookCreate extends javax.swing.JPanel {
   }// </editor-fold>//GEN-END:initComponents
 
   private void jTextFieldISBNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldISBNActionPerformed
-    // TODO add your handling code here:
+		// TODO add your handling code here:
   }//GEN-LAST:event_jTextFieldISBNActionPerformed
 
   private void jTextFieldTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldTitleActionPerformed
-    // TODO add your handling code here:
+		// TODO add your handling code here:
   }//GEN-LAST:event_jTextFieldTitleActionPerformed
 
   private void jTextFieldNbPagesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNbPagesActionPerformed
-    // TODO add your handling code here:
+		// TODO add your handling code here:
   }//GEN-LAST:event_jTextFieldNbPagesActionPerformed
 
   private void jTextFieldNbCopiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNbCopiesActionPerformed
-    // TODO add your handling code here:
+		// TODO add your handling code here:
   }//GEN-LAST:event_jTextFieldNbCopiesActionPerformed
+
+  private void jButtonRetourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRetourActionPerformed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_jButtonRetourActionPerformed
 
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -199,4 +212,28 @@ public class BookCreate extends javax.swing.JPanel {
   private javax.swing.JTextField jTextFieldNbPages;
   private javax.swing.JTextField jTextFieldTitle;
   // End of variables declaration//GEN-END:variables
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+			if (e.getSource() == jButtonRetour) {
+			String composant = e.getActionCommand();
+			if("Retour".equals(composant)){
+			fen.change(4);
+		}
+			System.out.println(e);
+			// fen.removeAll();
+	}
+	//	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	public void JButtonRetourActionPerformed(ActionEvent e) {
+		if (e.getSource() == jButtonRetour) {
+			String composant = e.getActionCommand();
+			if("Retour".equals(composant)){
+			fen.change(4);
+		}
+			System.out.println(e);
+			// fen.removeAll();
+		}
+	}
 }
