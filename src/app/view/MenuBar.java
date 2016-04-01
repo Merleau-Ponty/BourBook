@@ -99,9 +99,12 @@ public class MenuBar extends javax.swing.JFrame {
     jMenu4 = new javax.swing.JMenu();
     jMenu5 = new javax.swing.JMenu();
     jMenuItem2 = new javax.swing.JMenuItem();
-    jMenu11 = new javax.swing.JMenu();
-    jMenu13 = new javax.swing.JMenu();
+    jMenuItem3 = new javax.swing.JMenuItem();
     jMenu17 = new javax.swing.JMenu();
+    jMenuItem6 = new javax.swing.JMenuItem();
+    jMenuItem7 = new javax.swing.JMenuItem();
+    jMenuItem4 = new javax.swing.JMenuItem();
+    jMenuItem5 = new javax.swing.JMenuItem();
 
     jMenuItem1.setText("jMenuItem1");
 
@@ -140,16 +143,26 @@ public class MenuBar extends javax.swing.JFrame {
     });
     jMenu5.add(jMenuItem2);
 
+    jMenuItem3.setText("Créer");
+    jMenu5.add(jMenuItem3);
+
     jMenu4.add(jMenu5);
 
-    jMenu11.setText("Autheur");
-    jMenu4.add(jMenu11);
-
-    jMenu13.setText("Catégorie");
-    jMenu4.add(jMenu13);
-
     jMenu17.setText("Utilisateur");
+
+    jMenuItem6.setText("Lister");
+    jMenu17.add(jMenuItem6);
+
+    jMenuItem7.setText("Créer");
+    jMenu17.add(jMenuItem7);
+
     jMenu4.add(jMenu17);
+
+    jMenuItem4.setText("Auteur");
+    jMenu4.add(jMenuItem4);
+
+    jMenuItem5.setText("Catégorie");
+    jMenu4.add(jMenuItem5);
 
     jMenuBar1.add(jMenu4);
 
@@ -213,8 +226,6 @@ public class MenuBar extends javax.swing.JFrame {
 	}
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JMenu jMenu11;
-  private javax.swing.JMenu jMenu13;
   private javax.swing.JMenu jMenu17;
   private javax.swing.JMenu jMenu2;
   private javax.swing.JMenu jMenu4;
@@ -224,6 +235,11 @@ public class MenuBar extends javax.swing.JFrame {
   private javax.swing.JMenuBar jMenuBar1;
   private javax.swing.JMenuItem jMenuItem1;
   private javax.swing.JMenuItem jMenuItem2;
+  private javax.swing.JMenuItem jMenuItem3;
+  private javax.swing.JMenuItem jMenuItem4;
+  private javax.swing.JMenuItem jMenuItem5;
+  private javax.swing.JMenuItem jMenuItem6;
+  private javax.swing.JMenuItem jMenuItem7;
   private javax.swing.JPanel leJPanel;
   // End of variables declaration//GEN-END:variables
 
