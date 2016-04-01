@@ -93,18 +93,18 @@ public class MenuBar extends javax.swing.JFrame {
     jMenuItem1 = new javax.swing.JMenuItem();
     leJPanel = new javax.swing.JPanel();
     jMenuBar1 = new javax.swing.JMenuBar();
-    jMenu6 = new javax.swing.JMenu();
-    jMenu2 = new javax.swing.JMenu();
-    jMenu8 = new javax.swing.JMenu();
-    jMenu4 = new javax.swing.JMenu();
-    jMenu5 = new javax.swing.JMenu();
-    jMenuItem2 = new javax.swing.JMenuItem();
-    jMenuItem3 = new javax.swing.JMenuItem();
-    jMenu17 = new javax.swing.JMenu();
-    jMenuItem6 = new javax.swing.JMenuItem();
-    jMenuItem7 = new javax.swing.JMenuItem();
-    jMenuItem4 = new javax.swing.JMenuItem();
-    jMenuItem5 = new javax.swing.JMenuItem();
+    jMenuSearch = new javax.swing.JMenu();
+    jMenuLoan = new javax.swing.JMenu();
+    jMenuConnection = new javax.swing.JMenu();
+    jMenuAdministration = new javax.swing.JMenu();
+    jMenuBook = new javax.swing.JMenu();
+    jMenuBookList = new javax.swing.JMenuItem();
+    jMenuBookCreate = new javax.swing.JMenuItem();
+    jMenuUser = new javax.swing.JMenu();
+    jMenuUserList = new javax.swing.JMenuItem();
+    jMenuUserCreate = new javax.swing.JMenuItem();
+    jMenuAuthor = new javax.swing.JMenuItem();
+    jMenuCategory = new javax.swing.JMenuItem();
 
     jMenuItem1.setText("jMenuItem1");
 
@@ -122,49 +122,54 @@ public class MenuBar extends javax.swing.JFrame {
       .addGap(0, 445, Short.MAX_VALUE)
     );
 
-    jMenu6.setText("Recherche");
-    jMenuBar1.add(jMenu6);
+    jMenuSearch.setText("Recherche");
+    jMenuBar1.add(jMenuSearch);
 
-    jMenu2.setText("Emprunts");
-    jMenuBar1.add(jMenu2);
+    jMenuLoan.setText("Emprunt");
+    jMenuBar1.add(jMenuLoan);
 
-    jMenu8.setText("Connexion");
-    jMenuBar1.add(jMenu8);
+    jMenuConnection.setText("Connexion");
+    jMenuBar1.add(jMenuConnection);
 
-    jMenu4.setText("Administration");
+    jMenuAdministration.setText("Administration");
 
-    jMenu5.setText("Livre");
+    jMenuBook.setText("Livre");
 
-    jMenuItem2.setText("Lister");
-    jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+    jMenuBookList.setText("Lister");
+    jMenuBookList.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
-        jMenuItem2ActionPerformed(evt);
+        jMenuBookListActionPerformed(evt);
       }
     });
-    jMenu5.add(jMenuItem2);
+    jMenuBook.add(jMenuBookList);
 
-    jMenuItem3.setText("Créer");
-    jMenu5.add(jMenuItem3);
+    jMenuBookCreate.setText("Creer");
+    jMenuBookCreate.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jMenuBookCreateActionPerformed(evt);
+      }
+    });
+    jMenuBook.add(jMenuBookCreate);
 
-    jMenu4.add(jMenu5);
+    jMenuAdministration.add(jMenuBook);
 
-    jMenu17.setText("Utilisateur");
+    jMenuUser.setText("Utilisateur");
 
-    jMenuItem6.setText("Lister");
-    jMenu17.add(jMenuItem6);
+    jMenuUserList.setText("Lister");
+    jMenuUser.add(jMenuUserList);
 
-    jMenuItem7.setText("Créer");
-    jMenu17.add(jMenuItem7);
+    jMenuUserCreate.setText("Creer");
+    jMenuUser.add(jMenuUserCreate);
 
-    jMenu4.add(jMenu17);
+    jMenuAdministration.add(jMenuUser);
 
-    jMenuItem4.setText("Auteur");
-    jMenu4.add(jMenuItem4);
+    jMenuAuthor.setText("Auteur");
+    jMenuAdministration.add(jMenuAuthor);
 
-    jMenuItem5.setText("Catégorie");
-    jMenu4.add(jMenuItem5);
+    jMenuCategory.setText("Categorie");
+    jMenuAdministration.add(jMenuCategory);
 
-    jMenuBar1.add(jMenu4);
+    jMenuBar1.add(jMenuAdministration);
 
     setJMenuBar(jMenuBar1);
 
@@ -182,9 +187,13 @@ public class MenuBar extends javax.swing.JFrame {
     pack();
   }// </editor-fold>//GEN-END:initComponents
 
-  private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+  private void jMenuBookListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuBookListActionPerformed
     // TODO add your handling code here:
-  }//GEN-LAST:event_jMenuItem2ActionPerformed
+  }//GEN-LAST:event_jMenuBookListActionPerformed
+
+  private void jMenuBookCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuBookCreateActionPerformed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_jMenuBookCreateActionPerformed
 
 	/**
 	 * @param args the command line arguments
@@ -226,20 +235,20 @@ public class MenuBar extends javax.swing.JFrame {
 	}
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
-  private javax.swing.JMenu jMenu17;
-  private javax.swing.JMenu jMenu2;
-  private javax.swing.JMenu jMenu4;
-  private javax.swing.JMenu jMenu5;
-  private javax.swing.JMenu jMenu6;
-  private javax.swing.JMenu jMenu8;
+  private javax.swing.JMenu jMenuAdministration;
+  private javax.swing.JMenuItem jMenuAuthor;
   private javax.swing.JMenuBar jMenuBar1;
+  private javax.swing.JMenu jMenuBook;
+  private javax.swing.JMenuItem jMenuBookCreate;
+  private javax.swing.JMenuItem jMenuBookList;
+  private javax.swing.JMenuItem jMenuCategory;
+  private javax.swing.JMenu jMenuConnection;
   private javax.swing.JMenuItem jMenuItem1;
-  private javax.swing.JMenuItem jMenuItem2;
-  private javax.swing.JMenuItem jMenuItem3;
-  private javax.swing.JMenuItem jMenuItem4;
-  private javax.swing.JMenuItem jMenuItem5;
-  private javax.swing.JMenuItem jMenuItem6;
-  private javax.swing.JMenuItem jMenuItem7;
+  private javax.swing.JMenu jMenuLoan;
+  private javax.swing.JMenu jMenuSearch;
+  private javax.swing.JMenu jMenuUser;
+  private javax.swing.JMenuItem jMenuUserCreate;
+  private javax.swing.JMenuItem jMenuUserList;
   private javax.swing.JPanel leJPanel;
   // End of variables declaration//GEN-END:variables
 

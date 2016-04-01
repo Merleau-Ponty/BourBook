@@ -9,71 +9,74 @@
     </Component>
     <Menu class="javax.swing.JMenuBar" name="jMenuBar1">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="jMenu6">
+        <Menu class="javax.swing.JMenu" name="jMenuSearch">
           <Properties>
             <Property name="text" type="java.lang.String" value="Recherche"/>
           </Properties>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu2">
+        <Menu class="javax.swing.JMenu" name="jMenuLoan">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Emprunts"/>
+            <Property name="text" type="java.lang.String" value="Emprunt"/>
           </Properties>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu8">
+        <Menu class="javax.swing.JMenu" name="jMenuConnection">
           <Properties>
             <Property name="text" type="java.lang.String" value="Connexion"/>
           </Properties>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="jMenu4">
+        <Menu class="javax.swing.JMenu" name="jMenuAdministration">
           <Properties>
             <Property name="text" type="java.lang.String" value="Administration"/>
           </Properties>
           <SubComponents>
-            <Menu class="javax.swing.JMenu" name="jMenu5">
+            <Menu class="javax.swing.JMenu" name="jMenuBook">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Livre"/>
               </Properties>
               <SubComponents>
-                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem2">
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuBookList">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Lister"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuItem2ActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuBookListActionPerformed"/>
                   </Events>
                 </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem3">
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuBookCreate">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Cr&#xe9;er"/>
+                    <Property name="text" type="java.lang.String" value="Creer"/>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuBookCreateActionPerformed"/>
+                  </Events>
                 </MenuItem>
               </SubComponents>
             </Menu>
-            <Menu class="javax.swing.JMenu" name="jMenu17">
+            <Menu class="javax.swing.JMenu" name="jMenuUser">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Utilisateur"/>
               </Properties>
               <SubComponents>
-                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem6">
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuUserList">
                   <Properties>
                     <Property name="text" type="java.lang.String" value="Lister"/>
                   </Properties>
                 </MenuItem>
-                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem7">
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuUserCreate">
                   <Properties>
-                    <Property name="text" type="java.lang.String" value="Cr&#xe9;er"/>
+                    <Property name="text" type="java.lang.String" value="Creer"/>
                   </Properties>
                 </MenuItem>
               </SubComponents>
             </Menu>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem4">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuAuthor">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Auteur"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="jMenuItem5">
+            <MenuItem class="javax.swing.JMenuItem" name="jMenuCategory">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Cat&#xe9;gorie"/>
+                <Property name="text" type="java.lang.String" value="Categorie"/>
               </Properties>
             </MenuItem>
           </SubComponents>

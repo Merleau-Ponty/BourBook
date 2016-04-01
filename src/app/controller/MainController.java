@@ -17,7 +17,7 @@ public class MainController extends Controller {
 		frame.setContentPane(new BookCreate((MenuBar) frame));
 		frame.setVisible(true);
 	}
-
+	
 	public void setPanel(String panelName) {
 		// @TODO Verifier existence de la classe liee au panel, creer Controller
 		// affilie
