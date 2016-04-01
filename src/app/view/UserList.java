@@ -5,11 +5,14 @@
  */
 package app.view;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 /**
  *
  * @author Tom
  */
-public class UserList extends javax.swing.JPanel {
+public class UserList extends javax.swing.JPanel implements ActionListener{
 	MenuBar fen;
 
 	/**
@@ -19,7 +22,8 @@ public class UserList extends javax.swing.JPanel {
 	public UserList(MenuBar fen) {
 		super();
 		initComponents();
-		this.fen=fen;	 
+		this.fen=fen;
+		jButtonUserSearch.addActionListener(this);
 	}
 
 
@@ -83,7 +87,7 @@ public class UserList extends javax.swing.JPanel {
     ));
     jScrollPane1.setViewportView(jTableBookList);
 
-    jButtonUserSearch.setText("jButtonSearch");
+    jButtonUserSearch.setText("jButtonUserSearch");
     jButtonUserSearch.setActionCommand("jButtonSearchUser");
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -112,7 +116,7 @@ public class UserList extends javax.swing.JPanel {
           .addGroup(layout.createSequentialGroup()
             .addGap(289, 289, 289)
             .addComponent(JLabelTitleBookList)))
-        .addGap(0, 31, Short.MAX_VALUE))
+        .addGap(0, 9, Short.MAX_VALUE))
     );
     layout.setVerticalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -142,6 +146,11 @@ public class UserList extends javax.swing.JPanel {
 
   private void jTextFieldSearchUserNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSearchUserNameActionPerformed
     // TODO add your handling code here:
+		if(evt.getSource() == jButtonUserSearch){
+			System.out.println(evt);
+			// fen.removeAll();
+			fen.change(3);
+		}
   }//GEN-LAST:event_jTextFieldSearchUserNameActionPerformed
 
   private void jTextFieldSearchFirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldSearchFirstNameActionPerformed
@@ -161,4 +170,11 @@ public class UserList extends javax.swing.JPanel {
   private javax.swing.JTextField jTextFieldSearchFirstName;
   private javax.swing.JTextField jTextFieldSearchUserName;
   // End of variables declaration//GEN-END:variables
+
+	
+	
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
 }

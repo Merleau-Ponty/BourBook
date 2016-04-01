@@ -32,7 +32,10 @@ public class MenuBar extends javax.swing.JFrame {
 		//this.setContentPane(p);
 
 	}
-
+/**
+ * Transitions entre les différents panels
+ * @param i 
+ */
 	public void change(int i) {
 		switch (i) {
 			case 1:
@@ -42,27 +45,35 @@ public class MenuBar extends javax.swing.JFrame {
 			case 2:
 				this.setContentPane(bookCreate);
 				System.out.println("case 2 done : bookCreate");
+				break;
 			case 3:
 				this.setContentPane(bookDetail);
 				System.out.println("case 3 done : bookDetail");
+				break;
 			case 4:
 				this.setContentPane(bookList);
 				System.out.println("case 4 done : bookList");
+				break;
 			case 5:
 				this.setContentPane(categoryList);
 				System.out.println("case 5 done : categoryList");
+				break;
 			case 6:
 				this.setContentPane(login);
 				System.out.println("case 6 done : login");
+				break;
 			case 7:
 				this.setContentPane(loginCreate);
 				System.out.println("case 7 done : loginCreate");
+				break;
 			case 8:
 				this.setContentPane(userCreate);
 				System.out.println("case 8 done : userCreate");
+				break;
 			case 9:
 				this.setContentPane(userList);
 				System.out.println("case 9 done : userList");
+				break;
 			default:
 				System.out.println("ERREUR");
 				break;
