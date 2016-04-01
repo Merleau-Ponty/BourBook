@@ -1,6 +1,6 @@
 package app.entity;
 
-public class BookEntity extends Entity{
+public class BookEntity extends Entity {
 
 	private int id;
 	private int idAuthor;
@@ -9,66 +9,97 @@ public class BookEntity extends Entity{
 	private String isbn;
 	private String title;
 	private int nbPages;
-	
+
+
+	public BookEntity(int id, int idAuthor, int idCategory, String resume,
+			String isbn, String title, int nbPages) {
+		super();
+		this.id = id;
+		this.idAuthor = idAuthor;
+		this.idCategory = idCategory;
+		this.resume = resume;
+		this.isbn = isbn;
+		this.title = title;
+		this.nbPages = nbPages;
+		// TODO Auto-generated constructor stub
+	}
+
 	public int getId() {
 		return id;
 	}
+
 	public String getResume() {
 		return resume;
 	}
+
 	public String getIsbn() {
 		return isbn;
 	}
+
 	public String getTitle() {
 		return title;
 	}
+
 	public int getNbPages() {
 		return nbPages;
 	}
+
 	public int getIdAuthor() {
 		return idAuthor;
 	}
+
 	public int getIdCategory() {
 		return idCategory;
 	}
+
 	public void setId(int id) {
 		this.id = id;
 	}
+
 	public void setIdAuthor(int idAuthor) {
 		this.idAuthor = idAuthor;
 	}
+
 	public void setIdCategory(int idCategory) {
 		this.idCategory = idCategory;
 	}
+
 	public void setResume(String resume) {
 		this.resume = resume;
 	}
+
 	public void setIsbn(String isbn) {
 		this.isbn = isbn;
 	}
+
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
 	public void setNbPages(int nbPages) {
 		this.nbPages = nbPages;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "BookEntity [title=" + title + ", isbn=" + isbn + ", nbPages=" + nbPages + "]";
+		return "BookEntity [id=" + id + ", idAuthor=" + idAuthor
+				+ ", idCategory=" + idCategory + ", resume=" + resume + ","
+				+ "title=" + title + ", isbn=" + isbn + ", nbPages=" + nbPages
+				+ "]";
 	}
-	
+
 	/**
 	 * Renvoie un extrait du résumé du livre
-	 * @return String 
+	 * 
+	 * @return String
 	 */
-	public String getExtract(){
+	public String getExtract() {
 		int lgLimit = 150;
 		int nbWords = 0;
 		String extract = "";
 		String[] words = resume.split(" ");
-		
-		while (extract.length() < lgLimit && nbWords < words.length-1){
+
+		while (extract.length() < lgLimit && nbWords < words.length - 1) {
 			String word = words[nbWords];
 			extract += word + " ";
 			nbWords++;

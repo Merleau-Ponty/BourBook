@@ -9,6 +9,17 @@ public class LoanEntity extends Entity {
 	private String endDate;
 	private boolean waiting;
 	
+	
+	public LoanEntity(int idLoan, int idUser, int idCopy, String startDate, String endDate, boolean waiting) {
+		super();
+		this.idLoan = idLoan;
+		this.idUser = idUser;
+		this.idCopy = idCopy;
+		this.startDate = startDate;
+		this.endDate = endDate;
+		this.waiting = waiting;	
+	}
+	
 	public int getIdLoan() {
 		return idLoan;
 	}
@@ -26,6 +37,13 @@ public class LoanEntity extends Entity {
 	}
 	public boolean isWaiting() {
 		return waiting;
+	}
+
+	@Override
+	public String toString() {
+		return "LoanEntity [idLoan=" + idLoan + ", idUser=" + idUser
+				+ ", idCopy=" + idCopy + ", startDate=" + startDate
+				+ ", endDate=" + endDate + ", waiting=" + waiting + "]";
 	}
 	
 	

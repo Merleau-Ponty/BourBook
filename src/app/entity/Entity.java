@@ -1,5 +1,9 @@
 package app.entity;
 
-class Entity {
+public class Entity {
+	
+	public Entity(){
+		
+	}
 	
 }
