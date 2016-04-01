@@ -1,21 +1,23 @@
 package app;
 
+import javax.swing.JFrame;
+
+import app.controller.MainController;
 import app.database.Database;
 import app.database.MySQLDatabase;
+import app.view.MenuBar;
 
 public class App {
 
 	private static App _instance;
-	private Database db_instance;
+	private static Database db_instance;
+	private static MainController mainController;
 	
-	public App getInstance(){
-		if(_instance == null){
-			_instance = new App();
-		}
-		return _instance;
+	private App(){
+		super();
 	}
 	
-	public Database getDb(){
+	public static Database getDb(){
 		if(db_instance == null){
 			Config config = Config.getInstance("config.properties");
 			try {
@@ -26,6 +28,15 @@ public class App {
 			}
 		}
 		return db_instance;
+	}
+	
+	public static MainController getMainController(){
+		return App.mainController;
+	}
+	
+	public static void loadFrame(){
+		JFrame frame = new MenuBar();
+		App.mainController = new MainController(frame);
 	}
 
 }
