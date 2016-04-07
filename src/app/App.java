@@ -1,5 +1,7 @@
 package app;
 
+import java.util.ResourceBundle;
+
 import javax.swing.JFrame;
 
 import app.controller.MainController;
@@ -19,9 +21,10 @@ public class App {
 	
 	public static Database getDb(){
 		if(db_instance == null){
-			Config config = Config.getInstance("config.properties");
+//			Config config = Config.getInstance("config.properties");
+			ResourceBundle config = ResourceBundle.getBundle("config.config");
 			try {
-				db_instance = new MySQLDatabase(config.getProperty("user"), config.getProperty("password"), config.getProperty("url"));
+				db_instance = new MySQLDatabase(config.getString("user"), config.getString("password"), config.getString("url"));
 			} catch (ClassNotFoundException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
