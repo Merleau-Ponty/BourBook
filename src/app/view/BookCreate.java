@@ -115,23 +115,23 @@ public class BookCreate extends javax.swing.JPanel implements ActionListener {
     jButtonCreer.setText("Créer");
     jButtonCreer.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-          actionPerformed(evt);
           String isbn = null, titre = null, resume = null;
 			int nbPages = 0, nbCopy = 0;
 			BookModel model = new BookModel(db);
 			ArrayList<BookEntity> book = new ArrayList();
 			
 			if(evt.getActionCommand().contains("Créer")){
-				isbn = jTextFieldISBN.getText().trim();
-				titre = jTextFieldTitle.getText().trim();
-				nbPages =  Integer.parseInt(jTextFieldNbPages.getText().trim());
-				nbCopy = Integer.parseInt(jTextFieldNbCopies.getText().trim());
-				resume = jTextArea1.getText();
 				
 				if(isbn.equalsIgnoreCase("") && titre.equalsIgnoreCase("") && nbPages == 0 && nbCopy == 0 && resume.equalsIgnoreCase("") ){
 					JOptionPane.showMessageDialog(fen,"Remplissez les champs demandés");
 				}
-				else if ( isbn.length() <= 8  && titre.length() <=8 && nbPages != 0 && nbCopy != 0 && resume.length() <=8){
+				else if ( isbn.length() >=1  && titre.length() >=1 && nbPages != 0 && nbCopy != 0 && resume.length() >=1){
+					isbn = jTextFieldISBN.getText().trim();
+					titre = jTextFieldTitle.getText().trim();
+					nbPages =  Integer.parseInt(jTextFieldNbPages.getText().trim());
+					nbCopy = Integer.parseInt(jTextFieldNbCopies.getText().trim());
+					resume = jTextArea1.getText();
+
 					book.add(new BookEntity(resume, isbn, titre, nbPages));
 					
 					model.insertBook(book, nbCopy);

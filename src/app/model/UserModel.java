@@ -36,5 +36,31 @@ public class UserModel extends Model{
 		
 		return list;
 	}
+	
+	public ArrayList<UserEntity> checkLog(String login, String password){
+		ArrayList<UserEntity> identity = new ArrayList();
+		
+		try {
+			Statement statement = db.getConnection().createStatement();	
+			
+			String req = "Select NAME, FIRSTNAME from USER "
+					+ "where LOGIN = '"+ login+"'"
+					+ "AND PASSWORD = '"+ password +"';";
+			
+			ResultSet res = statement.executeQuery(req);
+			
+			while (res.next()) {
+				identity.add(new UserEntity(res.getString("NAME"), 
+						res.getString("FIRSTNAME") ) );
+			} 
+					
+		}
+		catch (SQLException e){
+			e.printStackTrace();
+		}
+		
+		return identity;
+		
+	}
 
 }

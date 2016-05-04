@@ -137,7 +137,7 @@ public class MenuBar extends javax.swing.JFrame{
 		  		String composant = evt.getActionCommand();
 		  		if("Recherche".equals(composant)){
 		  			MenuBar fen = new MenuBar();
-		  			fen.change(4);
+		  			fen.change(2);
 		  			
 		  		}
 		  	}
@@ -250,7 +250,7 @@ public class MenuBar extends javax.swing.JFrame{
 				// création de la fenêtre principale
 				MenuBar menuB = new MenuBar();
 				menuB.setVisible(true);
-				menuB.change(6);
+				menuB.change(4);
 			}
 		});
 

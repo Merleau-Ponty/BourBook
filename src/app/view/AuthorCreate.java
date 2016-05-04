@@ -33,32 +33,32 @@ public class AuthorCreate extends javax.swing.JPanel {
   private void initComponents() {
 
     jLabelAuthorName = new javax.swing.JLabel();
-    jTextFieldAuthorName = new javax.swing.JTextField();
+    jTextFieldAuthorName = new javax.swing.JTextField(20);
     jLabelAuthorFirstName = new javax.swing.JLabel();
-    jTextFieldAuthorFirstName = new javax.swing.JTextField();
+    jTextFieldAuthorFirstName = new javax.swing.JTextField(20);
     JLabelCreateAuthor = new javax.swing.JLabel();
     JLabelCreateAuthor1 = new javax.swing.JLabel();
     jLabelAuthorName1 = new javax.swing.JLabel();
-    jTextFieldAuthorName1 = new javax.swing.JTextField();
+    jTextFieldAuthorName1 = new javax.swing.JTextField(20);
     jLabelAuthorFirstName1 = new javax.swing.JLabel();
-    jTextFieldAuthorFirstName1 = new javax.swing.JTextField();
+    jTextFieldAuthorFirstName1 = new javax.swing.JTextField(20);
     jButtonCreateAthor = new javax.swing.JButton();
     jButtonSearchAthor = new javax.swing.JButton();
     jScrollPane1 = new javax.swing.JScrollPane();
     jTableAuthor = new javax.swing.JTable();
 
-    jLabelAuthorName.setText("jLabelAuthorName");
+    jLabelAuthorName.setText("Nom");
 
-    jTextFieldAuthorName.setText("jTextFieldAuthorName");
+    jTextFieldAuthorName.setText("");
     jTextFieldAuthorName.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jTextFieldAuthorNameActionPerformed(evt);
       }
     });
 
-    jLabelAuthorFirstName.setText("jLabelAuthorFirstName");
+    jLabelAuthorFirstName.setText("Prénom");
 
-    jTextFieldAuthorFirstName.setText("jTextFieldAuthorFirstName");
+    jTextFieldAuthorFirstName.setText("");
     jTextFieldAuthorFirstName.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jTextFieldAuthorFirstNameActionPerformed(evt);
@@ -66,37 +66,37 @@ public class AuthorCreate extends javax.swing.JPanel {
     });
 
     JLabelCreateAuthor.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-    JLabelCreateAuthor.setText("JLabelCreateAuthor");
+    JLabelCreateAuthor.setText("Création Auteur");
 
     JLabelCreateAuthor1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-    JLabelCreateAuthor1.setText("JLabelCreateAuthor");
+    JLabelCreateAuthor1.setText("Recherche Auteur");
 
-    jLabelAuthorName1.setText("jLabelAuthorName");
+    jLabelAuthorName1.setText("Nom");
 
-    jTextFieldAuthorName1.setText("jTextFieldAuthorName");
+    jTextFieldAuthorName1.setText("");
     jTextFieldAuthorName1.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jTextFieldAuthorName1ActionPerformed(evt);
       }
     });
 
-    jLabelAuthorFirstName1.setText("jLabelAuthorFirstName");
+    jLabelAuthorFirstName1.setText("Prénom");
 
-    jTextFieldAuthorFirstName1.setText("jTextFieldAuthorFirstName");
+    jTextFieldAuthorFirstName1.setText("");
     jTextFieldAuthorFirstName1.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jTextFieldAuthorFirstName1ActionPerformed(evt);
       }
     });
 
-    jButtonCreateAthor.setText("jButtonCreateAthor");
+    jButtonCreateAthor.setText("Créer");
     jButtonCreateAthor.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jButtonCreateAthorActionPerformed(evt);
       }
     });
 
-    jButtonSearchAthor.setText("jButtonSearchAthor");
+    jButtonSearchAthor.setText("Rechercher");
     jButtonSearchAthor.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jButtonSearchAthorActionPerformed(evt);
@@ -107,11 +107,10 @@ public class AuthorCreate extends javax.swing.JPanel {
       new Object [][] {
         {null, null, null, null},
         {null, null, null, null},
-        {null, null, null, null},
         {null, null, null, null}
       },
       new String [] {
-        "Title 1", "Title 2", "Title 3", "Title 4"
+        "Id", "Nom", "Prénom"
       }
     ));
     jScrollPane1.setViewportView(jTableAuthor);
@@ -213,7 +212,7 @@ public class AuthorCreate extends javax.swing.JPanel {
     // TODO add your handling code here:
   }//GEN-LAST:event_jButtonSearchAthorActionPerformed
 
-
+  
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JLabel JLabelCreateAuthor;
   private javax.swing.JLabel JLabelCreateAuthor1;
