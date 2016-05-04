@@ -7,6 +7,14 @@ package app.view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+
+import app.App;
+import app.database.Database;
+import app.entity.BookEntity;
+import app.model.BookModel;
 
 /**
  *
@@ -39,58 +47,58 @@ public class BookCreate extends javax.swing.JPanel implements ActionListener {
 
     jButton1 = new javax.swing.JButton();
     jLabelISBN = new javax.swing.JLabel();
-    jTextFieldISBN = new javax.swing.JTextField();
+    jTextFieldISBN = new javax.swing.JTextField(10);
     jLabelTitle = new javax.swing.JLabel();
-    jTextFieldTitle = new javax.swing.JTextField();
+    jTextFieldTitle = new javax.swing.JTextField(10);
     jLabelResume = new javax.swing.JLabel();
     jScrollPane1 = new javax.swing.JScrollPane();
     jTextArea1 = new javax.swing.JTextArea();
     jLabelNbPages = new javax.swing.JLabel();
-    jTextFieldNbPages = new javax.swing.JTextField();
+    jTextFieldNbPages = new javax.swing.JTextField(10);
     jLabel1 = new javax.swing.JLabel();
-    jTextFieldNbCopies = new javax.swing.JTextField();
+    jTextFieldNbCopies = new javax.swing.JTextField(10);
     jButtonRetour = new javax.swing.JButton();
     jButtonCreer = new javax.swing.JButton();
 
     jButton1.setText("jButton1");
 
-    jLabelISBN.setText("jLabelISBN");
+    jLabelISBN.setText("ISBN");
 
-    jTextFieldISBN.setText("jTextFieldISBN");
+    jTextFieldISBN.setText("");
     jTextFieldISBN.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jTextFieldISBNActionPerformed(evt);
       }
     });
 
-    jLabelTitle.setText("jLabelTitle");
+    jLabelTitle.setText("Titre");
 
-    jTextFieldTitle.setText("jTextFieldTitle");
+    jTextFieldTitle.setText("");
     jTextFieldTitle.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jTextFieldTitleActionPerformed(evt);
       }
     });
 
-    jLabelResume.setText("jLabelResume");
+    jLabelResume.setText("Resume");
 
     jTextArea1.setColumns(20);
     jTextArea1.setRows(5);
     jScrollPane1.setViewportView(jTextArea1);
 
-    jLabelNbPages.setText("jLabelNbPages");
+    jLabelNbPages.setText("NbPages");
     jLabelNbPages.setToolTipText("");
 
-    jTextFieldNbPages.setText("jTextFieldNbPages");
+    jTextFieldNbPages.setText("");
     jTextFieldNbPages.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jTextFieldNbPagesActionPerformed(evt);
       }
     });
 
-    jLabel1.setText("jLabelNbCopies");
+    jLabel1.setText("NbCopies");
 
-    jTextFieldNbCopies.setText("jTextFieldNbCopies");
+    jTextFieldNbCopies.setText("");
     jTextFieldNbCopies.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jTextFieldNbCopiesActionPerformed(evt);
@@ -104,7 +112,34 @@ public class BookCreate extends javax.swing.JPanel implements ActionListener {
       }
     });
 
-    jButtonCreer.setText("jButtonCreer");
+    jButtonCreer.setText("Créer");
+    jButtonCreer.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+          actionPerformed(evt);
+          String isbn = null, titre = null, resume = null;
+			int nbPages = 0, nbCopy = 0;
+			BookModel model = new BookModel(db);
+			ArrayList<BookEntity> book = new ArrayList();
+			
+			if(evt.getActionCommand().contains("Créer")){
+				isbn = jTextFieldISBN.getText().trim();
+				titre = jTextFieldTitle.getText().trim();
+				nbPages =  Integer.parseInt(jTextFieldNbPages.getText().trim());
+				nbCopy = Integer.parseInt(jTextFieldNbCopies.getText().trim());
+				resume = jTextArea1.getText();
+				
+				if(isbn.equalsIgnoreCase("") && titre.equalsIgnoreCase("") && nbPages == 0 && nbCopy == 0 && resume.equalsIgnoreCase("") ){
+					JOptionPane.showMessageDialog(fen,"Remplissez les champs demandés");
+				}
+				else if ( isbn.length() <= 8  && titre.length() <=8 && nbPages != 0 && nbCopy != 0 && resume.length() <=8){
+					book.add(new BookEntity(resume, isbn, titre, nbPages));
+					
+					model.insertBook(book, nbCopy);
+					System.out.println("Insertion Réussite!");
+				}
+			}
+        }
+      });
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
     this.setLayout(layout);
@@ -213,27 +248,18 @@ public class BookCreate extends javax.swing.JPanel implements ActionListener {
   private javax.swing.JTextField jTextFieldTitle;
   // End of variables declaration//GEN-END:variables
 
+  	Database db = App.getDb();
 	@Override
 	public void actionPerformed(ActionEvent e) {
 			if (e.getSource() == jButtonRetour) {
 			String composant = e.getActionCommand();
 			if("Retour".equals(composant)){
 			fen.change(4);
-		}
-			System.out.println(e);
+			}
+//			System.out.println(e);
 			// fen.removeAll();
-	}
+			}
 	//	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 
-	public void JButtonRetourActionPerformed(ActionEvent e) {
-		if (e.getSource() == jButtonRetour) {
-			String composant = e.getActionCommand();
-			if("Retour".equals(composant)){
-			fen.change(4);
-		}
-			System.out.println(e);
-			// fen.removeAll();
-		}
-	}
 }

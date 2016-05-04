@@ -6,7 +6,7 @@ public class AuthorEntity extends Entity{
 	private String name;
 	private String firstname;
 	
-	
+	// Constructeur v1
 	public AuthorEntity(int idAuthor, String name, String firstname) {
 		super();
 		this.idAuthor = idAuthor;
@@ -14,6 +14,15 @@ public class AuthorEntity extends Entity{
 		this.firstname = firstname;
 	
 	}
+	
+	// Constructeur v2
+	public AuthorEntity(String name, String firstname) {
+		super();
+		this.name = name;
+		this.firstname = firstname;
+	
+	}
+	
 	public int getAuthor() {
 		return idAuthor;
 	}

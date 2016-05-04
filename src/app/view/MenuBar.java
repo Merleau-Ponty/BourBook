@@ -5,12 +5,16 @@
  */
 package app.view;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.event.MenuEvent;
 
 /**
  *
  * @author Tom
  */
-public class MenuBar extends javax.swing.JFrame {
+public class MenuBar extends javax.swing.JFrame{
 
 	AuthorCreate authorCreate = new AuthorCreate(this);
 	BookCreate bookCreate = new BookCreate(this);
@@ -122,15 +126,32 @@ public class MenuBar extends javax.swing.JFrame {
       .addGap(0, 445, Short.MAX_VALUE)
     );
 
-    jMenuSearch.setText("Recherche");
-    jMenuBar1.add(jMenuSearch);
+    jMenuSearch.setText("Recherche");  
+    
+    jMenuSearch.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+          actionPerformed(evt);
+          System.out.println("Je rentre !!!!");
+          
+          if(evt.getSource() == jMenuSearch){
+		  		String composant = evt.getActionCommand();
+		  		if("Recherche".equals(composant)){
+		  			MenuBar fen = new MenuBar();
+		  			fen.change(4);
+		  			
+		  		}
+		  	}
+        }
+      });
+    
+    jMenuBar1.add(jMenuSearch);   
 
     jMenuLoan.setText("Emprunt");
     jMenuBar1.add(jMenuLoan);
 
     jMenuConnection.setText("Connexion");
     jMenuBar1.add(jMenuConnection);
-
+    
     jMenuAdministration.setText("Administration");
 
     jMenuBook.setText("Livre");
@@ -172,7 +193,7 @@ public class MenuBar extends javax.swing.JFrame {
     jMenuBar1.add(jMenuAdministration);
 
     setJMenuBar(jMenuBar1);
-
+    
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     getContentPane().setLayout(layout);
     layout.setHorizontalGroup(
@@ -222,13 +243,14 @@ public class MenuBar extends javax.swing.JFrame {
 		}
         //</editor-fold>
 		//</editor-fold>
-
+		
 		/* Create and display the form */
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
+				// création de la fenêtre principale
 				MenuBar menuB = new MenuBar();
 				menuB.setVisible(true);
-				menuB.change(2);
+				menuB.change(1);
 			}
 		});
 
@@ -245,11 +267,12 @@ public class MenuBar extends javax.swing.JFrame {
   private javax.swing.JMenu jMenuConnection;
   private javax.swing.JMenuItem jMenuItem1;
   private javax.swing.JMenu jMenuLoan;
-  private javax.swing.JMenu jMenuSearch;
+  private javax.swing.JMenuItem jMenuSearch;
   private javax.swing.JMenu jMenuUser;
   private javax.swing.JMenuItem jMenuUserCreate;
   private javax.swing.JMenuItem jMenuUserList;
   private javax.swing.JPanel leJPanel;
+  
   // End of variables declaration//GEN-END:variables
 
-}
+  }

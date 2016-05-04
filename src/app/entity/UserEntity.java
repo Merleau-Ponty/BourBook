@@ -25,6 +25,12 @@ public class UserEntity extends Entity{
 		this.service = service;
 	}
 	
+	public UserEntity(String name, String firstname) {
+		super();
+		this.name = name;
+		this.firstname = firstname;
+	}
+	
 	public int getIdUser() {
 		return idUser;
 	}

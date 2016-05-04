@@ -15,6 +15,7 @@ public class CategoryModel extends Model{
 		// TODO Auto-generated constructor stub
 	}
 	
+
 	public ArrayList<CategoryEntity> lister(){
 		ArrayList<CategoryEntity> list = new ArrayList();
 		try {
@@ -35,5 +36,32 @@ public class CategoryModel extends Model{
 		
 		return list;
 	}
+	
+	/**
+	 * affiche le nom de chaque categorie existante
+	 * @return ArrayList de STRING
+	 */
+	public ArrayList<String> nomCategory(){
+		ArrayList<String> nomCateg = new ArrayList();
+		try {
+			Statement statement = db.getConnection().createStatement();	
+			
+			String req = "Select LABEL from CATEGORY ;";
+			
+			ResultSet res = statement.executeQuery(req);
+			
+			while (res.next()) {
+				nomCateg.add(res.getString("LABEL") );
+			} 
+					
+		}
+		catch (SQLException e){
+			e.printStackTrace();
+		}
+		
+		return nomCateg;
+	}
+	
+	
 
 }

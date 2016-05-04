@@ -5,6 +5,15 @@
  */
 package app.view;
 
+import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+
+import app.App;
+import app.database.Database;
+import app.entity.UserEntity;
+import app.model.UserModel;
+
 /**
  *
  * @author Tom
@@ -33,41 +42,79 @@ public class Login extends javax.swing.JPanel {
   private void initComponents() {
 
     jLabelLogin = new javax.swing.JLabel();
-    jTextFieldLogin = new javax.swing.JTextField();
+    jTextFieldLogin = new javax.swing.JTextField(20);
     jLabelPass = new javax.swing.JLabel();
-    jTextFieldPass = new javax.swing.JTextField();
+    jTextFieldPass = new javax.swing.JTextField(20);
     jButtonValidate = new javax.swing.JButton();
     jButtonCancel = new javax.swing.JButton();
 
-    jLabelLogin.setText("jLabelLogin");
+    jLabelLogin.setText("Login");
 
-    jTextFieldLogin.setText("jTextFieldLogin");
+    jTextFieldLogin.setText("");
     jTextFieldLogin.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jTextFieldLoginActionPerformed(evt);
       }
     });
 
-    jLabelPass.setText("jLabelPass");
+    jLabelPass.setText("Password");
 
-    jTextFieldPass.setText("jTextFieldPass");
+    jTextFieldPass.setText("");
     jTextFieldPass.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jTextFieldPassActionPerformed(evt);
       }
     });
 
-    jButtonValidate.setText("jButtonValidate");
+    Database db = App.getDb();
+    UserModel model = new UserModel(db);
+    
+    jButtonValidate.setText("Valider");
     jButtonValidate.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jButtonValidateActionPerformed(evt);
+        
+        String login = null, password = null, name = null, firstname = null;
+        ArrayList<UserEntity> user = new ArrayList();
+
+        if(evt.getActionCommand().contains("Valider")){
+        	login = jTextFieldLogin.getText().trim();
+        	password = jTextFieldPass.getText().trim();
+        	
+        	
+        	if(login.equalsIgnoreCase("") && password.equalsIgnoreCase("") ){
+        		JOptionPane.showMessageDialog(fen,"Veuillez remplir les champs demandés");
+        	}
+        	else if(login.length() >= 1 && password.length() >= 1){
+        		user = model.checkLog(login, password);
+        		
+        		if(user.size() == 0){
+					JOptionPane.showMessageDialog(fen,"Aucun utilisateur correspondant");
+				}
+
+				for (int i = 0; i < user.size(); i++){
+					 name = user.get(i).getName();
+					firstname = user.get(i).getFirstname();
+				}
+				
+					fen.change(4);
+				
+        	}
+        	else if(login.equalsIgnoreCase("") || password.equalsIgnoreCase("")){
+        		JOptionPane.showMessageDialog(fen,"Veuillez renseigner correctement vos identifiants");
+        	}
+        }
       }
     });
-
-    jButtonCancel.setText("jButtonCancel");
+    
+    jButtonCancel.setText("Annuler");
     jButtonCancel.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jButtonCancelActionPerformed(evt);
+        if(evt.getActionCommand().contains("Annuler")){
+        	fen.change(4);
+        }
+        
       }
     });
 

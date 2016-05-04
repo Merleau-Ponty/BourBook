@@ -1,5 +1,6 @@
 package app.entity;
 
+
 public class BookEntity extends Entity {
 
 	private int id;
@@ -9,8 +10,10 @@ public class BookEntity extends Entity {
 	private String isbn;
 	private String title;
 	private int nbPages;
+	public AuthorEntity author;
 
 
+	// Constructeur v1
 	public BookEntity(int id, int idAuthor, int idCategory, String resume,
 			String isbn, String title, int nbPages) {
 		super();
@@ -22,6 +25,34 @@ public class BookEntity extends Entity {
 		this.title = title;
 		this.nbPages = nbPages;
 		// TODO Auto-generated constructor stub
+	}
+	
+	// Constructeur v2
+	public BookEntity(String title, String resume,  int nbPages) {
+		super();
+		this.title = title;
+		this.resume = resume;
+		this.nbPages = nbPages;
+		// TODO Auto-generated constructor stub
+	}
+	
+	// Constructeur v3 
+	public BookEntity(String title, AuthorEntity author, String resume, int nbPages){
+		super();
+		this.title = title;
+		this.author = author;
+		this.resume = resume;
+		this.nbPages = nbPages;
+	}
+
+ 
+	
+	public BookEntity(String resume, String isbn, String title, int nbPages) {
+		super();
+		this.resume = resume;
+		this.isbn = isbn;
+		this.title = title;
+		this.nbPages = nbPages;
 	}
 
 	public int getId() {
