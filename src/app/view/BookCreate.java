@@ -116,25 +116,29 @@ public class BookCreate extends javax.swing.JPanel implements ActionListener {
     jButtonCreer.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
           String isbn = null, titre = null, resume = null;
-			int nbPages = 0, nbCopy = 0;
+			String nbPages = null;
+			String nbCopy = null;
 			BookModel model = new BookModel(db);
 			ArrayList<BookEntity> book = new ArrayList();
 			
 			if(evt.getActionCommand().contains("Créer")){
+				isbn = jTextFieldISBN.getText().trim();
+				titre = jTextFieldTitle.getText().trim();
+				nbPages = jTextFieldNbPages.getText().trim();
+				System.out.println("Résult : "+ nbPages);
+				nbCopy = jTextFieldNbCopies.getText().trim();
+				resume = jTextArea1.getText();
 				
-				if(isbn.equalsIgnoreCase("") && titre.equalsIgnoreCase("") && nbPages == 0 && nbCopy == 0 && resume.equalsIgnoreCase("") ){
+				if(isbn.equalsIgnoreCase("") && titre.equalsIgnoreCase("") && nbPages.equalsIgnoreCase("") && nbCopy.equalsIgnoreCase("") && resume.equalsIgnoreCase("") ){
 					JOptionPane.showMessageDialog(fen,"Remplissez les champs demandés");
 				}
-				else if ( isbn.length() >=1  && titre.length() >=1 && nbPages != 0 && nbCopy != 0 && resume.length() >=1){
-					isbn = jTextFieldISBN.getText().trim();
-					titre = jTextFieldTitle.getText().trim();
-					nbPages =  Integer.parseInt(jTextFieldNbPages.getText().trim());
-					nbCopy = Integer.parseInt(jTextFieldNbCopies.getText().trim());
-					resume = jTextArea1.getText();
-
-					book.add(new BookEntity(resume, isbn, titre, nbPages));
+				else if ( isbn.length() >=1  && titre.length() >=1 && nbPages.length() >=1 && nbCopy.length() >=1 && resume.length() >=1){
 					
-					model.insertBook(book, nbCopy);
+					int nbPage = Integer.parseInt(nbPages);
+					int copy = Integer.parseInt(nbCopy);
+					book.add(new BookEntity(resume, isbn, titre, nbPage));
+					
+					model.insertBook(book);
 					System.out.println("Insertion Réussite!");
 				}
 			}

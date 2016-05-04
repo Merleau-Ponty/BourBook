@@ -141,14 +141,14 @@ public class BookModel extends Model {
 	 * @param book
 	 * @param nbCopy
 	 */
-	public void insertBook(ArrayList<BookEntity> book, int nbCopy){
+	public void insertBook(ArrayList<BookEntity> book){
 		
 		try {
 			Statement statement = db.getConnection().createStatement();
 //			Statement statement2 = db.getConnection().createStatement();
 			
 			for(BookEntity b : book){
-				String req = "INSERT INTO BOOK (RESUME, ISBN, TITLE, NBPAGES) values ('"+ b.getResume()+"', '"+ b.getIsbn()+"', '"+ b.getTitle()+"'"
+				String req = "INSERT INTO BOOK (ID_AUTHOR, ID_CATEGORY, RESUME, ISBN, TITLE, NBPAGES) values (4, 5,'"+ b.getResume()+"', '"+ b.getIsbn()+"', '"+ b.getTitle()+"'"
 						+ ", '"+ b.getNbPages()+"')";
 				statement.executeUpdate(req);
 				
