@@ -250,7 +250,7 @@ public class MenuBar extends javax.swing.JFrame{
 				// création de la fenêtre principale
 				MenuBar menuB = new MenuBar();
 				menuB.setVisible(true);
-				menuB.change(1);
+				menuB.change(6);
 			}
 		});
 

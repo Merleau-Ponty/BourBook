@@ -91,13 +91,15 @@ public class Login extends javax.swing.JPanel {
         		if(user.size() == 0){
 					JOptionPane.showMessageDialog(fen,"Aucun utilisateur correspondant");
 				}
-
-				for (int i = 0; i < user.size(); i++){
-					 name = user.get(i).getName();
-					firstname = user.get(i).getFirstname();
-				}
+        		else {
+        			for (int i = 0; i < user.size(); i++){
+   					 name = user.get(i).getName();
+   					firstname = user.get(i).getFirstname();
+   				}
+   				
+   					fen.change(4);
+        		}
 				
-					fen.change(4);
 				
         	}
         	else if(login.equalsIgnoreCase("") || password.equalsIgnoreCase("")){
