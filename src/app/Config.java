@@ -32,7 +32,7 @@ public class Config{
 	}
 	
 	/**
-	 * Renvoie la propriété liée à la clé entrée en paramètre
+	 * Renvoie la propriÃ©tÃ© liÃ©e Ã  la clÃ© entrÃ©e en paramÃ¨tre
 	 * @param key String
 	 * @return String
 	 */

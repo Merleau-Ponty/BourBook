@@ -24,7 +24,7 @@ public class MySQLDatabase extends Database{
 		/* Chargement du driver JDBC pour MySQL */
         System.out.println( "Chargement du driver..." );
         Class.forName("com.mysql.jdbc.Driver");
-        System.out.println("Driver chargé !" );
+        System.out.println("Driver chargÃ© !" );
 	}
 
 	public Connection getConnection(){
