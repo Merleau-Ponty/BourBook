@@ -5,28 +5,31 @@
  */
 package app.view;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
-import javax.swing.event.MenuEvent;
-
 /**
  *
  * @author Tom
  */
-public class MenuBar extends javax.swing.JFrame{
-
-	AuthorCreate authorCreate = new AuthorCreate(this);
-	BookCreate bookCreate = new BookCreate(this);
-	BookDetail bookDetail = new BookDetail(this);
-	BookList bookList = new BookList(this);
-	CategoryList categoryList = new CategoryList(this);
-	Login login = new Login(this);
-	LoginCreate loginCreate = new LoginCreate(this);
-	UserCreate userCreate = new UserCreate(this);
-	UserList userList = new UserList(this);
+public class MenuBar extends javax.swing.JFrame {
+	public final static int AUTHOR_CREATE = 1;
+	public final static int BOOK_CREATE = 2;
+	public final static int BOOK_DETAIL = 3;
+	public final static int BOOK_LIST = 4;
+	public final static int CATEGORY_LIST = 5;
+	public final static int LOGIN = 6;
+	public final static int LOGIN_CREATE = 7;
+	public final static int USER_CREATE = 8;
+	public final static int USER_LIST = 9;
 	
 	
+	AuthorCreate authorCreate;
+	BookCreate bookCreate;
+	BookDetail bookDetail;
+	BookList bookList;
+	CategoryList categoryList;
+	Login login;
+	LoginCreate loginCreate;
+	UserCreate userCreate;
+	UserList userList;
 
 	/**
 	 * Creates new form listeLivre
@@ -34,47 +37,57 @@ public class MenuBar extends javax.swing.JFrame{
 	public MenuBar() {
 		initComponents();
 		//this.setContentPane(p);
-
+		this.authorCreate = new AuthorCreate(this);
+		this.bookCreate = new BookCreate(this);
+		this.bookDetail = new BookDetail(this);
+		this.bookList = new BookList(this);
+		this.categoryList = new CategoryList(this);
+		this.login = new Login(this);
+		this.loginCreate = new LoginCreate(this);
+		this.userCreate = new UserCreate(this);
+		this.userList = new UserList(this);
 	}
-/**
- * Transitions entre les différents panels
- * @param i 
- */
+
+	/**
+	 * Transitions entre les différents panels
+	 *
+	 * @param i
+	 */
 	public void change(int i) {
 		switch (i) {
-			case 1:
+			case AUTHOR_CREATE:
 				this.setContentPane(authorCreate);
 				System.out.println("case 1 done : authorCreate");
 				break;
-			case 2:
+			case BOOK_CREATE:
 				this.setContentPane(bookCreate);
 				System.out.println("case 2 done : bookCreate");
 				break;
-			case 3:
+			case BOOK_DETAIL:
 				this.setContentPane(bookDetail);
 				System.out.println("case 3 done : bookDetail");
 				break;
-			case 4:
+			case BOOK_LIST:
 				this.setContentPane(bookList);
 				System.out.println("case 4 done : bookList");
 				break;
-			case 5:
+			case CATEGORY_LIST:
 				this.setContentPane(categoryList);
 				System.out.println("case 5 done : categoryList");
 				break;
-			case 6:
+			case LOGIN:
 				this.setContentPane(login);
 				System.out.println("case 6 done : login");
 				break;
-			case 7:
+			case LOGIN_CREATE:
 				this.setContentPane(loginCreate);
 				System.out.println("case 7 done : loginCreate");
 				break;
-			case 8:
+			case USER_CREATE:
 				this.setContentPane(userCreate);
 				System.out.println("case 8 done : userCreate");
 				break;
-			case 9:
+			case USER_LIST:
 				this.setContentPane(userList);
 				System.out.println("case 9 done : userList");
 				break;
@@ -83,6 +96,7 @@ public class MenuBar extends javax.swing.JFrame{
 				break;
 
 		}
+		this.paintAll(this.getGraphics());
 	}
 
 	/**
@@ -126,37 +140,54 @@ public class MenuBar extends javax.swing.JFrame{
       .addGap(0, 445, Short.MAX_VALUE)
     );
 
-    jMenuSearch.setText("Recherche");  
-    
-    jMenuSearch.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-          actionPerformed(evt);
-          System.out.println("Je rentre !!!!");
-          
-          if(evt.getSource() == jMenuSearch){
-		  		String composant = evt.getActionCommand();
-		  		if("Recherche".equals(composant)){
-		  			MenuBar fen = new MenuBar();
-		  			fen.change(2);
-		  			
-		  		}
-		  	}
-        }
-      });
-    
-    jMenuBar1.add(jMenuSearch);   
+    jMenuSearch.setText("Recherche");
+    jMenuSearch.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        jMenuSearchMouseClicked(evt);
+      }
+    });
+    jMenuBar1.add(jMenuSearch);
 
     jMenuLoan.setText("Emprunt");
+    jMenuLoan.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        jMenuLoanMouseClicked(evt);
+      }
+    });
     jMenuBar1.add(jMenuLoan);
 
     jMenuConnection.setText("Connexion");
+    jMenuConnection.addMenuListener(new javax.swing.event.MenuListener() {
+      public void menuCanceled(javax.swing.event.MenuEvent evt) {
+      }
+      public void menuDeselected(javax.swing.event.MenuEvent evt) {
+      }
+      public void menuSelected(javax.swing.event.MenuEvent evt) {
+        jMenuConnectionMenuSelected(evt);
+      }
+    });
+    jMenuConnection.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        jMenuConnectionMouseClicked(evt);
+      }
+    });
+    jMenuConnection.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jMenuConnectionActionPerformed(evt);
+      }
+    });
     jMenuBar1.add(jMenuConnection);
-    
+
     jMenuAdministration.setText("Administration");
 
     jMenuBook.setText("Livre");
 
     jMenuBookList.setText("Lister");
+    jMenuBookList.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        jMenuBookListMouseClicked(evt);
+      }
+    });
     jMenuBookList.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jMenuBookListActionPerformed(evt);
@@ -165,6 +196,11 @@ public class MenuBar extends javax.swing.JFrame{
     jMenuBook.add(jMenuBookList);
 
     jMenuBookCreate.setText("Creer");
+    jMenuBookCreate.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        jMenuBookCreateMouseClicked(evt);
+      }
+    });
     jMenuBookCreate.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jMenuBookCreateActionPerformed(evt);
@@ -177,23 +213,63 @@ public class MenuBar extends javax.swing.JFrame{
     jMenuUser.setText("Utilisateur");
 
     jMenuUserList.setText("Lister");
+    jMenuUserList.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        jMenuUserListMouseClicked(evt);
+      }
+    });
+    jMenuUserList.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jMenuUserListActionPerformed(evt);
+      }
+    });
     jMenuUser.add(jMenuUserList);
 
     jMenuUserCreate.setText("Creer");
+    jMenuUserCreate.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        jMenuUserCreateMouseClicked(evt);
+      }
+    });
+    jMenuUserCreate.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jMenuUserCreateActionPerformed(evt);
+      }
+    });
     jMenuUser.add(jMenuUserCreate);
 
     jMenuAdministration.add(jMenuUser);
 
     jMenuAuthor.setText("Auteur");
+    jMenuAuthor.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        jMenuAuthorMouseClicked(evt);
+      }
+    });
+    jMenuAuthor.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jMenuAuthorActionPerformed(evt);
+      }
+    });
     jMenuAdministration.add(jMenuAuthor);
 
     jMenuCategory.setText("Categorie");
+    jMenuCategory.addMouseListener(new java.awt.event.MouseAdapter() {
+      public void mouseClicked(java.awt.event.MouseEvent evt) {
+        jMenuCategoryMouseClicked(evt);
+      }
+    });
+    jMenuCategory.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jMenuCategoryActionPerformed(evt);
+      }
+    });
     jMenuAdministration.add(jMenuCategory);
 
     jMenuBar1.add(jMenuAdministration);
 
     setJMenuBar(jMenuBar1);
-    
+
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     getContentPane().setLayout(layout);
     layout.setHorizontalGroup(
@@ -209,12 +285,90 @@ public class MenuBar extends javax.swing.JFrame{
   }// </editor-fold>//GEN-END:initComponents
 
   private void jMenuBookListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuBookListActionPerformed
-    // TODO add your handling code here:
+		// TODO add your handling code here:
+		System.out.println("want to list books ?");
+		this.change(BOOK_LIST);
   }//GEN-LAST:event_jMenuBookListActionPerformed
 
   private void jMenuBookCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuBookCreateActionPerformed
-    // TODO add your handling code here:
+		// TODO add your handling code here:
+		System.out.println("want to add books ?");
+		this.change(BOOK_CREATE);
   }//GEN-LAST:event_jMenuBookCreateActionPerformed
+
+  private void jMenuConnectionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuConnectionActionPerformed
+    // TODO add your handling code here:
+		
+  }//GEN-LAST:event_jMenuConnectionActionPerformed
+
+  private void jMenuConnectionMenuSelected(javax.swing.event.MenuEvent evt) {//GEN-FIRST:event_jMenuConnectionMenuSelected
+    // TODO add your handling code here:
+  }//GEN-LAST:event_jMenuConnectionMenuSelected
+
+  private void jMenuLoanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuLoanMouseClicked
+    // TODO add your handling code here:
+		System.out.println("want to loan ?");
+		this.change(BOOK_LIST);
+  }//GEN-LAST:event_jMenuLoanMouseClicked
+
+  private void jMenuConnectionMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuConnectionMouseClicked
+    // TODO add your handling code here:
+		System.out.println("want to login ?");
+		this.change(LOGIN);
+  }//GEN-LAST:event_jMenuConnectionMouseClicked
+
+  private void jMenuSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuSearchMouseClicked
+    // TODO add your handling code here:
+		System.out.println("want to search something ?");
+		this.change(BOOK_LIST);
+  }//GEN-LAST:event_jMenuSearchMouseClicked
+
+  private void jMenuAuthorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuAuthorMouseClicked
+
+  }//GEN-LAST:event_jMenuAuthorMouseClicked
+
+  private void jMenuCategoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuCategoryMouseClicked
+
+  }//GEN-LAST:event_jMenuCategoryMouseClicked
+
+  private void jMenuBookListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuBookListMouseClicked
+
+  }//GEN-LAST:event_jMenuBookListMouseClicked
+
+  private void jMenuBookCreateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuBookCreateMouseClicked
+  }//GEN-LAST:event_jMenuBookCreateMouseClicked
+
+  private void jMenuUserListMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuUserListMouseClicked
+
+  }//GEN-LAST:event_jMenuUserListMouseClicked
+
+  private void jMenuUserCreateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuUserCreateMouseClicked
+
+  }//GEN-LAST:event_jMenuUserCreateMouseClicked
+
+  private void jMenuAuthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuAuthorActionPerformed
+    // TODO add your handling code here:
+		System.out.println("want to manage the authors ?");
+		this.change(AUTHOR_CREATE);
+  }//GEN-LAST:event_jMenuAuthorActionPerformed
+
+  private void jMenuCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCategoryActionPerformed
+    // TODO add your handling code here:
+		System.out.println("want to manage categories ?");
+		this.change(CATEGORY_LIST);
+  }//GEN-LAST:event_jMenuCategoryActionPerformed
+
+  private void jMenuUserCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuUserCreateActionPerformed
+    // TODO add your handling code here:
+		System.out.println("want to create a new user ?");
+		this.change(USER_CREATE);
+  }//GEN-LAST:event_jMenuUserCreateActionPerformed
+
+  private void jMenuUserListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuUserListActionPerformed
+    // TODO add your handling code here:
+		System.out.println("want to list users ?");
+		this.change(USER_LIST);
+  }//GEN-LAST:event_jMenuUserListActionPerformed
 
 	/**
 	 * @param args the command line arguments
@@ -243,14 +397,14 @@ public class MenuBar extends javax.swing.JFrame{
 		}
         //</editor-fold>
 		//</editor-fold>
-		
+
 		/* Create and display the form */
 		java.awt.EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				// création de la fenêtre principale
-				MenuBar menuB = new MenuBar();
-				menuB.setVisible(true);
-				menuB.change(4);
+//				MenuBar menuB = new MenuBar();
+//				menuB.setVisible(true);
+//				menuB.change(4);
 			}
 		});
 
@@ -267,12 +421,10 @@ public class MenuBar extends javax.swing.JFrame{
   private javax.swing.JMenu jMenuConnection;
   private javax.swing.JMenuItem jMenuItem1;
   private javax.swing.JMenu jMenuLoan;
-  private javax.swing.JMenuItem jMenuSearch;
+  private javax.swing.JMenu jMenuSearch;
   private javax.swing.JMenu jMenuUser;
   private javax.swing.JMenuItem jMenuUserCreate;
   private javax.swing.JMenuItem jMenuUserList;
   private javax.swing.JPanel leJPanel;
-  
   // End of variables declaration//GEN-END:variables
-
-  }
+}

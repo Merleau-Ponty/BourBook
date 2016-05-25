@@ -14,7 +14,9 @@ public class MainController extends Controller {
 	public MainController(JFrame mainView) {
 		super();
 		frame = mainView;
-		frame.setContentPane(new BookCreate((MenuBar) frame));
+		//frame.setContentPane(new BookCreate((MenuBar) frame));
+		//frame.setContentPane(new BookList((MenuBar) frame));
+		((MenuBar) frame).change(MenuBar.BOOK_LIST);
 		frame.setVisible(true);
 	}
 	

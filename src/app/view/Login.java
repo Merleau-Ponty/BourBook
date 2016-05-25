@@ -13,6 +13,7 @@ import app.App;
 import app.database.Database;
 import app.entity.UserEntity;
 import app.model.UserModel;
+import static app.view.MenuBar.BOOK_LIST;
 
 /**
  *
@@ -169,6 +170,8 @@ public class Login extends javax.swing.JPanel {
 
   private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
     // TODO add your handling code here:
+		System.out.println("want to back ?");
+		fen.change(BOOK_LIST);
   }//GEN-LAST:event_jButtonCancelActionPerformed
 
   private void jButtonValidateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonValidateActionPerformed

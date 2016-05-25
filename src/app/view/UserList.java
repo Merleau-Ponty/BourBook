@@ -149,7 +149,7 @@ public class UserList extends javax.swing.JPanel implements ActionListener{
 		if(evt.getSource() == jButtonUserSearch){
 			System.out.println(evt);
 			// fen.removeAll();
-			fen.change(3);
+			//fen.change(3);
 		}
   }//GEN-LAST:event_jTextFieldSearchUserNameActionPerformed
 

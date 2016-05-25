@@ -231,7 +231,8 @@ public class BookCreate extends javax.swing.JPanel implements ActionListener {
   }//GEN-LAST:event_jTextFieldNbCopiesActionPerformed
 
   private void jButtonRetourActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRetourActionPerformed
-    // TODO add your handling code here:
+		// TODO add your handling code here:
+		fen.change(fen.BOOK_LIST);
   }//GEN-LAST:event_jButtonRetourActionPerformed
 
 
@@ -252,18 +253,19 @@ public class BookCreate extends javax.swing.JPanel implements ActionListener {
   private javax.swing.JTextField jTextFieldTitle;
   // End of variables declaration//GEN-END:variables
 
-  	Database db = App.getDb();
+	Database db = App.getDb();
+
 	@Override
 	public void actionPerformed(ActionEvent e) {
-			if (e.getSource() == jButtonRetour) {
+		if (e.getSource() == jButtonRetour) {
 			String composant = e.getActionCommand();
-			if("Retour".equals(composant)){
-			fen.change(4);
-			}
+//			if ("Retour".equals(composant)) {
+//				fen.change(4);
+//			}
 //			System.out.println(e);
 			// fen.removeAll();
-			}
-	//	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+		}
+		//	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
 	}
 
 }

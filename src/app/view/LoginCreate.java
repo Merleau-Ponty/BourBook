@@ -5,6 +5,8 @@
  */
 package app.view;
 
+import static app.view.MenuBar.BOOK_LIST;
+
 /**
  *
  * @author Tom
@@ -157,6 +159,8 @@ public class LoginCreate extends javax.swing.JPanel {
 
   private void jButtonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCancelActionPerformed
     // TODO add your handling code here:
+		System.out.println("want to back ?");
+		fen.change(BOOK_LIST);
   }//GEN-LAST:event_jButtonCancelActionPerformed
 
   private void jTextFieldPass1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldPass1ActionPerformed

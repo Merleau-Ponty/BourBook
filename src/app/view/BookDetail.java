@@ -5,6 +5,8 @@
  */
 package app.view;
 
+import static app.view.MenuBar.BOOK_LIST;
+
 /**
  *
  * @author Tom
@@ -97,6 +99,11 @@ public class BookDetail extends javax.swing.JPanel {
     });
 
     jButtonReturn.setText("jButtonReturn");
+    jButtonReturn.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButtonReturnActionPerformed(evt);
+      }
+    });
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
     this.setLayout(layout);
@@ -187,6 +194,12 @@ public class BookDetail extends javax.swing.JPanel {
   private void jButtonLoanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoanActionPerformed
     // TODO add your handling code here:
   }//GEN-LAST:event_jButtonLoanActionPerformed
+
+  private void jButtonReturnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReturnActionPerformed
+    // TODO add your handling code here:
+		System.out.println("return ?");
+		fen.change(BOOK_LIST);
+  }//GEN-LAST:event_jButtonReturnActionPerformed
 
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
