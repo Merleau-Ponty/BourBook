@@ -35,10 +35,10 @@
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextFieldSearchAuthor" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelSearchAutor" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabelSearchAutor" min="-2" max="-2" attributes="0"/>
+                          <Component id="jTextFieldSearchAuthor" min="-2" pref="97" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace type="separate" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabelSearchCategory" min="-2" max="-2" attributes="0"/>
@@ -86,7 +86,7 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabelSearchCategory">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabelSearchCategory"/>
+        <Property name="text" type="java.lang.String" value="Cat&#xe9;gorie"/>
       </Properties>
     </Component>
     <Container class="java.awt.Panel" name="panel1">
@@ -111,16 +111,13 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldSearchTitle">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextFieldSearchTitle"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldSearchTitleActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelTitleSearch">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabelSearchTitle"/>
+        <Property name="text" type="java.lang.String" value="Titre"/>
         <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
           <Color id="Curseur par d&#xe9;faut"/>
         </Property>
@@ -128,16 +125,14 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldSearchAuthor">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextFieldSearchAuthor"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldSearchAuthorActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelSearchAutor">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabelSearchAuthor"/>
+        <Property name="text" type="java.lang.String" value="Auteur"/>
+        <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -150,12 +145,33 @@
         <Component class="javax.swing.JTable" name="jTableBookList">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="4" rowCount="4">
-                <Column editable="true" title="Title 1" type="java.lang.Object"/>
-                <Column editable="true" title="Title 2" type="java.lang.Object"/>
-                <Column editable="true" title="Title 3" type="java.lang.Object"/>
-                <Column editable="true" title="Title 4" type="java.lang.Object"/>
+              <Table columnCount="3" rowCount="1">
+                <Column editable="true" title="Titre" type="java.lang.Object"/>
+                <Column editable="true" title="R&#xe9;sum&#xe9;" type="java.lang.String"/>
+                <Column editable="true" title="Nb Pages" type="java.lang.Integer"/>
               </Table>
+            </Property>
+            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+              <TableColumnModel selectionModel="0">
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                  <Title/>
+                  <Editor/>
+                  <Renderer/>
+                </Column>
+              </TableColumnModel>
+            </Property>
+            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
+              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
             </Property>
           </Properties>
         </Component>
@@ -175,8 +191,11 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonSearch">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jButtonSearch"/>
+        <Property name="text" type="java.lang.String" value="Rechercher"/>
       </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jButtonSearchMouseClicked"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
