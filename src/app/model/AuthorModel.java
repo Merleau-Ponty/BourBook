@@ -47,7 +47,7 @@ public class AuthorModel extends Model{
 		try {
 			Statement statement = db.getConnection().createStatement();	
 			
-			String req = "Select NAME, FIRSTNAME from AUTHOR  where NAME like '%"+ name+"%' ORDER BY TITLE;";
+			String req = "Select NAME, FIRSTNAME from AUTHOR  where NAME like '%"+ name+"%' ORDER BY NAME;";
 			
 			ResultSet res = statement.executeQuery(req);
 			
