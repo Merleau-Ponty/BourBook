@@ -222,6 +222,7 @@ public class AuthorCreate extends javax.swing.JPanel {
 
 		String name, firstname = new String();
 		AuthorModel searchName = new AuthorModel(db);
+		AuthorModel searchFirstname = new AuthorModel(db);
 		ArrayList<AuthorEntity> authors = new ArrayList<>();
 
 		// vide le JTable à chaque recherche avant affichage résultat
@@ -263,7 +264,7 @@ public class AuthorCreate extends javax.swing.JPanel {
 
 			Object[] data = {nom, prenom};
 			tableModel.addRow(data);
-
+		}
   }//GEN-LAST:event_jButtonSearchAthorActionPerformed
 
   
