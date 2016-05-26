@@ -35,5 +35,61 @@ public class AuthorModel extends Model{
 		
 		return list;
 	}
+	
+	/**
+	 * retourne le ou les auteurs comprenant la lettre mentionnée en paramètre
+	 * @param name
+	 * @return ArrayList de Book
+	 */
+	public ArrayList<AuthorEntity> searchName(String name){
+		ArrayList<AuthorEntity> liste = new ArrayList<AuthorEntity>();
+		
+		try {
+			Statement statement = db.getConnection().createStatement();	
+			
+			String req = "Select NAME, FIRSTNAME from AUTHOR  where NAME like '%"+ name+"%' ORDER BY TITLE;";
+			
+			ResultSet res = statement.executeQuery(req);
+			
+			while (res.next()) {
+				liste.add(new AuthorEntity(res.getString("NAME"), res.getString("FIRSTNAME") ) );
+			} 
+					
+		}
+		catch (SQLException e){
+			e.printStackTrace();
+		}
+		
+		return liste;
+		
+	}
+	
+	/**
+	 * retourne le ou les auteurs comprenant la lettre mentionnée en paramètre
+	 * @param firstname
+	 * @return ArrayList de Book
+	 */
+	public ArrayList<AuthorEntity> searchFirstname(String firstname){
+		ArrayList<AuthorEntity> liste = new ArrayList<AuthorEntity>();
+		
+		try {
+			Statement statement = db.getConnection().createStatement();	
+			
+			String req = "Select NAME, FIRSTNAME from AUTHOR  where FIRSTNAME like '%"+ firstname+"%' ORDER BY TITLE;";
+			
+			ResultSet res = statement.executeQuery(req);
+			
+			while (res.next()) {
+				liste.add(new AuthorEntity(res.getString("NAME"), res.getString("FIRSTNAME") ) );
+			} 
+					
+		}
+		catch (SQLException e){
+			e.printStackTrace();
+		}
+		
+		return liste;
+		
+	}
 
 }

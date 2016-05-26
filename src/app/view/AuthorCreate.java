@@ -5,6 +5,16 @@
  */
 package app.view;
 
+import app.App;
+import app.database.Database;
+import app.entity.AuthorEntity;
+import app.entity.BookEntity;
+import app.model.AuthorModel;
+import app.model.BookModel;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author Tom
@@ -12,16 +22,17 @@ package app.view;
 public class AuthorCreate extends javax.swing.JPanel {
 
 	MenuBar fen;
+
 	/**
 	 * Creates new form AuthorCreate
+	 *
 	 * @param fen
 	 */
 	public AuthorCreate(MenuBar fen) {
 		super();
 		initComponents();
-		this.fen=fen;	 
+		this.fen = fen;
 	}
-
 
 	/**
 	 * This method is called from within the constructor to initialize the form.
@@ -33,32 +44,32 @@ public class AuthorCreate extends javax.swing.JPanel {
   private void initComponents() {
 
     jLabelAuthorName = new javax.swing.JLabel();
-    jTextFieldAuthorName = new javax.swing.JTextField(20);
+    jTextFieldAuthorName = new javax.swing.JTextField();
     jLabelAuthorFirstName = new javax.swing.JLabel();
-    jTextFieldAuthorFirstName = new javax.swing.JTextField(20);
+    jTextFieldAuthorFirstName = new javax.swing.JTextField();
     JLabelCreateAuthor = new javax.swing.JLabel();
     JLabelCreateAuthor1 = new javax.swing.JLabel();
     jLabelAuthorName1 = new javax.swing.JLabel();
-    jTextFieldAuthorName1 = new javax.swing.JTextField(20);
+    jTextFieldAuthorName1 = new javax.swing.JTextField();
     jLabelAuthorFirstName1 = new javax.swing.JLabel();
-    jTextFieldAuthorFirstName1 = new javax.swing.JTextField(20);
+    jTextFieldAuthorFirstName1 = new javax.swing.JTextField();
     jButtonCreateAthor = new javax.swing.JButton();
     jButtonSearchAthor = new javax.swing.JButton();
     jScrollPane1 = new javax.swing.JScrollPane();
-    jTableAuthor = new javax.swing.JTable();
+    jTableAuthorList = new javax.swing.JTable();
 
-    jLabelAuthorName.setText("Nom");
+    jLabelAuthorName.setText("jLabelAuthorName");
 
-    jTextFieldAuthorName.setText("");
+    jTextFieldAuthorName.setText("jTextFieldAuthorName");
     jTextFieldAuthorName.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jTextFieldAuthorNameActionPerformed(evt);
       }
     });
 
-    jLabelAuthorFirstName.setText("Prénom");
+    jLabelAuthorFirstName.setText("jLabelAuthorFirstName");
 
-    jTextFieldAuthorFirstName.setText("");
+    jTextFieldAuthorFirstName.setText("jTextFieldAuthorFirstName");
     jTextFieldAuthorFirstName.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jTextFieldAuthorFirstNameActionPerformed(evt);
@@ -66,54 +77,52 @@ public class AuthorCreate extends javax.swing.JPanel {
     });
 
     JLabelCreateAuthor.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-    JLabelCreateAuthor.setText("Création Auteur");
+    JLabelCreateAuthor.setText("JLabelCreateAuthor");
 
     JLabelCreateAuthor1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-    JLabelCreateAuthor1.setText("Recherche Auteur");
+    JLabelCreateAuthor1.setText("JLabelCreateAuthor");
 
-    jLabelAuthorName1.setText("Nom");
+    jLabelAuthorName1.setText("jLabelAuthorName");
 
-    jTextFieldAuthorName1.setText("");
+    jTextFieldAuthorName1.setText("jTextFieldAuthorName");
     jTextFieldAuthorName1.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jTextFieldAuthorName1ActionPerformed(evt);
       }
     });
 
-    jLabelAuthorFirstName1.setText("Prénom");
+    jLabelAuthorFirstName1.setText("jLabelAuthorFirstName");
 
-    jTextFieldAuthorFirstName1.setText("");
+    jTextFieldAuthorFirstName1.setText("jTextFieldAuthorFirstName");
     jTextFieldAuthorFirstName1.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jTextFieldAuthorFirstName1ActionPerformed(evt);
       }
     });
 
-    jButtonCreateAthor.setText("Créer");
+    jButtonCreateAthor.setText("jButtonCreateAthor");
     jButtonCreateAthor.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jButtonCreateAthorActionPerformed(evt);
       }
     });
 
-    jButtonSearchAthor.setText("Rechercher");
+    jButtonSearchAthor.setText("jButtonSearchAthor");
     jButtonSearchAthor.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jButtonSearchAthorActionPerformed(evt);
       }
     });
 
-    jTableAuthor.setModel(new javax.swing.table.DefaultTableModel(
+    jTableAuthorList.setModel(new javax.swing.table.DefaultTableModel(
       new Object [][] {
-        {null, null, null, null},
-        {null, null, null, null},
-        {null, null, null, null}
+        {null, null}
       },
       new String [] {
-        "Id", "Nom", "Prénom"
+        "Prénom", "Nom"
       }
     ));
-    jScrollPane1.setViewportView(jTableAuthor);
+    jScrollPane1.setViewportView(jTableAuthorList);
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
     this.setLayout(layout);
@@ -189,27 +198,72 @@ public class AuthorCreate extends javax.swing.JPanel {
   }// </editor-fold>//GEN-END:initComponents
 
   private void jTextFieldAuthorNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAuthorNameActionPerformed
-    // TODO add your handling code here:
+		// TODO add your handling code here:
   }//GEN-LAST:event_jTextFieldAuthorNameActionPerformed
 
   private void jTextFieldAuthorFirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAuthorFirstNameActionPerformed
-    // TODO add your handling code here:
+		// TODO add your handling code here:
   }//GEN-LAST:event_jTextFieldAuthorFirstNameActionPerformed
 
   private void jTextFieldAuthorName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAuthorName1ActionPerformed
-    // TODO add your handling code here:
+		// TODO add your handling code here:
   }//GEN-LAST:event_jTextFieldAuthorName1ActionPerformed
 
   private void jTextFieldAuthorFirstName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAuthorFirstName1ActionPerformed
-    // TODO add your handling code here:
+		// TODO add your handling code here:
   }//GEN-LAST:event_jTextFieldAuthorFirstName1ActionPerformed
 
   private void jButtonCreateAthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateAthorActionPerformed
-    // TODO add your handling code here:
+		// TODO add your handling code here:
   }//GEN-LAST:event_jButtonCreateAthorActionPerformed
 
   private void jButtonSearchAthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchAthorActionPerformed
-    // TODO add your handling code here:
+		Database db = App.getDb();
+
+		String name, firstname = new String();
+		AuthorModel searchName = new AuthorModel(db);
+		ArrayList<AuthorEntity> authors = new ArrayList<>();
+
+		// vide le JTable à chaque recherche avant affichage résultat
+		DefaultTableModel tableModel = (DefaultTableModel) jTableAuthorList.getModel();
+		while (tableModel.getRowCount() > 0) {
+			tableModel.removeRow(0);
+		}
+
+		// récupération données
+		name = jTextFieldAuthorName.getText().trim();
+		firstname = jTextFieldAuthorFirstName.getText().trim();
+
+		if (name.equalsIgnoreCase("") && firstname.equalsIgnoreCase("")) {
+			// cas où les champs sont vides
+			JOptionPane.showMessageDialog(fen, "Veuillez remplir au moins un des champs proposés");
+		} else if (name.length() >= 1) {
+
+			authors = searchName.searchName(name);
+
+			if (authors.isEmpty()) {
+				JOptionPane.showMessageDialog(fen, "Aucun auteur correspondant");
+			}
+
+		} else if (firstname.length() >= 1) {
+			authors = searchFirstname.searchFirstname(firstname);
+
+			if (authors.size() == 0) {
+				JOptionPane.showMessageDialog(fen, "Aucun auteur correspondant");
+			}
+
+		}
+		if (authors.isEmpty()) {
+			JOptionPane.showMessageDialog(fen, "Aucun auteur correspondant");
+		}
+
+		for (int i = 0; i < authors.size(); i++) {
+			String nom = authors.get(i).getName();
+			String prenom = authors.get(i).getFirstname();
+
+			Object[] data = {nom, prenom};
+			tableModel.addRow(data);
+
   }//GEN-LAST:event_jButtonSearchAthorActionPerformed
 
   
@@ -223,7 +277,7 @@ public class AuthorCreate extends javax.swing.JPanel {
   private javax.swing.JLabel jLabelAuthorName;
   private javax.swing.JLabel jLabelAuthorName1;
   private javax.swing.JScrollPane jScrollPane1;
-  private javax.swing.JTable jTableAuthor;
+  private javax.swing.JTable jTableAuthorList;
   private javax.swing.JTextField jTextFieldAuthorFirstName;
   private javax.swing.JTextField jTextFieldAuthorFirstName1;
   private javax.swing.JTextField jTextFieldAuthorName;
