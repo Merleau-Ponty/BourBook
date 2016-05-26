@@ -213,7 +213,7 @@ public class AuthorCreate extends javax.swing.JPanel {
   private void jButtonSearchAthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchAthorActionPerformed
 		Database db = App.getDb();
 
-		String name, firstname = new String();
+		String name, firstname;
 		AuthorModel searchName = new AuthorModel(db);
 		AuthorModel searchFirstname = new AuthorModel(db);
 		ArrayList<AuthorEntity> authors = new ArrayList<>();
@@ -225,8 +225,8 @@ public class AuthorCreate extends javax.swing.JPanel {
 		}
 
 		// récupération données
-		name = jTextFieldAuthorNameCreate.getText().trim();
-		firstname = jTextFieldAuthorFirstNameCreate.getText().trim();
+		name = jTextFieldAuthorName.getText().trim();
+		firstname = jTextFieldAuthorFirstName.getText().trim();
 
 		if (name.equalsIgnoreCase("") && firstname.equalsIgnoreCase("")) {
 			// cas où les champs sont vides
