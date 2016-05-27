@@ -45,7 +45,7 @@ public class Login extends javax.swing.JPanel {
     jLabelLogin = new javax.swing.JLabel();
     jTextFieldLogin = new javax.swing.JTextField(20);
     jLabelPass = new javax.swing.JLabel();
-    jTextFieldPass = new javax.swing.JTextField(20);
+    jTextFieldPass = new javax.swing.JPasswordField(20);
     jButtonValidate = new javax.swing.JButton();
     jButtonCancel = new javax.swing.JButton();
 

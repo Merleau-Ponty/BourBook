@@ -51,67 +51,67 @@ public class UserCreate extends javax.swing.JPanel {
     jButtonCreate = new javax.swing.JButton();
     jButtonRetour = new javax.swing.JButton();
 
-    jLabelUserName.setText("jLabelUserName");
+    jLabelUserName.setText("Username");
 
-    jTextFieldUserName.setText("jTextFieldUserName");
+    jTextFieldUserName.setText("");
 
-    jLabelUserFirstName.setText("jLabelUserFirstName");
+    jLabelUserFirstName.setText("Prenom");
 
-    jTextFieldUserFirstName.setText("jTextFieldUserFirstName");
+    jTextFieldUserFirstName.setText("John");
     jTextFieldUserFirstName.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jTextFieldUserFirstNameActionPerformed(evt);
       }
     });
 
-    jTextFieldUserLogin.setText("jTextFieldUserLogin");
+    jTextFieldUserLogin.setText("doej");
     jTextFieldUserLogin.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jTextFieldUserLoginActionPerformed(evt);
       }
     });
 
-    jLabelUserLogin.setText("jLabelUserLogin");
+    jLabelUserLogin.setText("login");
 
-    jTextFieldUserPass.setText("jTextFieldUserPass");
+    jTextFieldUserPass.setText("password");
     jTextFieldUserPass.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jTextFieldUserPassActionPerformed(evt);
       }
     });
 
-    jLabelUserPass.setText("jLabelUserPass");
+    jLabelUserPass.setText("Password");
 
-    jTextFieldUserPhone.setText("jTextFieldUserPhone");
+    jTextFieldUserPhone.setText("0612345678");
     jTextFieldUserPhone.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jTextFieldUserPhoneActionPerformed(evt);
       }
     });
 
-    jLabelUserPhone.setText("jLabelUserPass");
+    jLabelUserPhone.setText("Telephone");
 
-    jTextFieldUserMail.setText("jTextFieldUserMail");
+    jTextFieldUserMail.setText("mail@domain.com");
     jTextFieldUserMail.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jTextFieldUserMailActionPerformed(evt);
       }
     });
 
-    jLabelUserMail.setText("jLabelUserMail");
+    jLabelUserMail.setText("Adresse e-mail");
 
-    jTextFieldUserService.setText("jTextFieldUserService");
+    jTextFieldUserService.setText("Comptabilite");
     jTextFieldUserService.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jTextFieldUserServiceActionPerformed(evt);
       }
     });
 
-    jLabelUserService.setText("jLabelUserService");
+    jLabelUserService.setText("Service");
 
-    jButtonCreate.setText("jButtonCreate");
+    jButtonCreate.setText("Sauvegarder");
 
-    jButtonRetour.setText("jButtonRetour");
+    jButtonRetour.setText("Retour");
     jButtonRetour.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jButtonRetourActionPerformed(evt);
@@ -125,21 +125,21 @@ public class UserCreate extends javax.swing.JPanel {
       .addGroup(layout.createSequentialGroup()
         .addGap(29, 29, 29)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addComponent(jTextFieldUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jTextFieldUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(jLabelUserName)
-          .addComponent(jTextFieldUserPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jTextFieldUserPass, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(jLabelUserPass)
-          .addComponent(jTextFieldUserLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jTextFieldUserLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(jLabelUserLogin)
-          .addComponent(jTextFieldUserFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jTextFieldUserFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(jLabelUserFirstName))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 185, Short.MAX_VALUE)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addComponent(jTextFieldUserPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jTextFieldUserPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(jLabelUserPhone)
-          .addComponent(jTextFieldUserMail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jTextFieldUserMail, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(jLabelUserMail)
-          .addComponent(jTextFieldUserService, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jTextFieldUserService, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(jLabelUserService))
         .addGap(220, 220, 220))
       .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()

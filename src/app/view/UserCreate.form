@@ -19,22 +19,22 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jTextFieldUserName" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelUserName" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldUserPass" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelUserPass" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldUserLogin" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelUserLogin" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldUserFirstName" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabelUserFirstName" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelUserName" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldUserName" min="-2" pref="180" max="180" attributes="0"/>
+                  <Component id="jLabelUserPass" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldUserPass" min="-2" pref="180" max="180" attributes="0"/>
+                  <Component id="jLabelUserLogin" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldUserLogin" min="-2" pref="180" max="180" attributes="0"/>
+                  <Component id="jLabelUserFirstName" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldUserFirstName" min="-2" pref="180" max="180" attributes="0"/>
               </Group>
               <EmptySpace pref="185" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jTextFieldUserPhone" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldUserPhone" alignment="0" min="-2" pref="180" max="180" attributes="0"/>
                   <Component id="jLabelUserPhone" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldUserMail" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldUserMail" alignment="0" min="-2" pref="180" max="180" attributes="0"/>
                   <Component id="jLabelUserMail" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldUserService" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldUserService" alignment="0" min="-2" pref="180" max="180" attributes="0"/>
                   <Component id="jLabelUserService" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="220" max="-2" attributes="0"/>
@@ -107,12 +107,12 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabelUserName">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabelUserName"/>
+        <Property name="text" type="java.lang.String" value="Username"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldUserName">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jTextFieldUserName"/>
+        <Property name="text" type="java.lang.String" value=""/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelUserFirstName">
@@ -122,7 +122,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldUserFirstName">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jTextFieldUserFirstName"/>
+        <Property name="text" type="java.lang.String" value="Prenom"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldUserFirstNameActionPerformed"/>
@@ -130,7 +130,7 @@
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldUserLogin">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jTextFieldUserLogin"/>
+        <Property name="text" type="java.lang.String" value="login"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldUserLoginActionPerformed"/>
