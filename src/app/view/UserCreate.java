@@ -8,6 +8,16 @@ package app.view;
 import static app.view.MenuBar.BOOK_LIST;
 import static app.view.MenuBar.USER_LIST;
 
+import java.util.ArrayList;
+
+import javax.swing.JOptionPane;
+
+import app.App;
+import app.entity.BookEntity;
+import app.entity.UserEntity;
+import app.model.BookModel;
+import app.model.UserModel;
+
 /**
  *
  * @author Tom
@@ -51,9 +61,9 @@ public class UserCreate extends javax.swing.JPanel {
     jButtonCreate = new javax.swing.JButton();
     jButtonRetour = new javax.swing.JButton();
 
-    jLabelUserName.setText("Username");
+    jLabelUserName.setText("Nom");
 
-    jTextFieldUserName.setText("");
+    jTextFieldUserName.setText("Doe");
 
     jLabelUserFirstName.setText("Prenom");
 
@@ -110,6 +120,32 @@ public class UserCreate extends javax.swing.JPanel {
     jLabelUserService.setText("Service");
 
     jButtonCreate.setText("Sauvegarder");
+    jButtonCreate.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+          String firstname = null, name = null, login = null, password = null, phone = null, mail = null, service = null;
+			
+			if(evt.getActionCommand().contains("Sauvegarder")){
+
+				firstname = jTextFieldUserFirstName.getText().trim();
+				name = jTextFieldUserName.getText().trim();
+				login = jTextFieldUserLogin.getText().trim();
+				password = jTextFieldUserPass.getText().trim();
+				phone = jTextFieldUserPhone.getText().trim();
+				mail = jTextFieldUserMail.getText().trim();
+				service = jTextFieldUserService.getText().trim();
+
+				if(login.equals("") && password.equals("")){
+					JOptionPane.showMessageDialog(fen,"Remplissez les champs obligatoires");
+				} else {
+					UserEntity user = new UserEntity(login, password, name, firstname, phone, mail, service);
+					UserModel model = new UserModel(App.getDb());
+					model.insertUser(user);
+					System.out.println("Insertion reussie!");
+					JOptionPane.showMessageDialog(fen,"L'utilisateur "+user.getFirstname()+" "+user.getName()+" est bien sauvegarde !");
+				}
+			}
+        }
+      });
 
     jButtonRetour.setText("Retour");
     jButtonRetour.addActionListener(new java.awt.event.ActionListener() {
