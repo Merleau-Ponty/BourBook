@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import app.database.Database;
 import app.entity.AuthorEntity;
 import java.sql.PreparedStatement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class AuthorModel extends Model {
 
@@ -89,6 +91,20 @@ public class AuthorModel extends Model {
 		}
 
 		return newAuthor;
+	}
+	
+	public AuthorEntity findById(int id){
+		String request = "select * from AUTHOR where id = " + id;
+		try {
+			Statement statement = db.getConnection().createStatement();
+			ResultSet req = statement.executeQuery(request);
+			if(req.next()){
+				return new AuthorEntity(req.getInt("ID"), req.getString("NAME"), req.getString("FIRSTNAME"));
+			}
+		} catch (SQLException ex) {
+			Logger.getLogger(AuthorModel.class.getName()).log(Level.SEVERE, null, ex);
+		}
+		return null;
 	}
 
 }

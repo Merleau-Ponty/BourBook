@@ -13,8 +13,11 @@ import javax.swing.JOptionPane;
 
 import app.App;
 import app.database.Database;
+import app.entity.AuthorEntity;
 import app.entity.BookEntity;
+import app.model.AuthorModel;
 import app.model.BookModel;
+import app.model.CategoryModel;
 
 /**
  *
@@ -34,6 +37,7 @@ public class BookCreate extends javax.swing.JPanel implements ActionListener {
 		initComponents();
 		this.fen = fen;
 		jButtonRetour.addActionListener(this);
+		this.populateAuteurs();
 	}
 
 	/**
@@ -46,25 +50,34 @@ public class BookCreate extends javax.swing.JPanel implements ActionListener {
   private void initComponents() {
 
     jButton1 = new javax.swing.JButton();
+    jButton2 = new javax.swing.JButton();
     jLabelISBN = new javax.swing.JLabel();
-    jTextFieldISBN = new javax.swing.JTextField(10);
+    jTextFieldISBN = new javax.swing.JTextField();
     jLabelTitle = new javax.swing.JLabel();
-    jTextFieldTitle = new javax.swing.JTextField(10);
+    jTextFieldTitle = new javax.swing.JTextField();
     jLabelResume = new javax.swing.JLabel();
     jScrollPane1 = new javax.swing.JScrollPane();
     jTextArea1 = new javax.swing.JTextArea();
     jLabelNbPages = new javax.swing.JLabel();
-    jTextFieldNbPages = new javax.swing.JTextField(10);
+    jTextFieldNbPages = new javax.swing.JTextField();
     jLabel1 = new javax.swing.JLabel();
-    jTextFieldNbCopies = new javax.swing.JTextField(10);
+    jTextFieldNbCopies = new javax.swing.JTextField();
     jButtonRetour = new javax.swing.JButton();
     jButtonCreer = new javax.swing.JButton();
+    jLabel2 = new javax.swing.JLabel();
+    jTextFieldAuthorName = new javax.swing.JTextField();
+    jLabel3 = new javax.swing.JLabel();
+    jTextFieldAuthorFirstName = new javax.swing.JTextField();
+    jComboBoxAuthor = new javax.swing.JComboBox();
+    jLabel4 = new javax.swing.JLabel();
+    jLabel5 = new javax.swing.JLabel();
 
     jButton1.setText("jButton1");
 
+    jButton2.setText("jButton2");
+
     jLabelISBN.setText("ISBN");
 
-    jTextFieldISBN.setText("");
     jTextFieldISBN.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jTextFieldISBNActionPerformed(evt);
@@ -73,32 +86,29 @@ public class BookCreate extends javax.swing.JPanel implements ActionListener {
 
     jLabelTitle.setText("Titre");
 
-    jTextFieldTitle.setText("");
     jTextFieldTitle.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jTextFieldTitleActionPerformed(evt);
       }
     });
 
-    jLabelResume.setText("Resume");
+    jLabelResume.setText("Résumé");
 
     jTextArea1.setColumns(20);
     jTextArea1.setRows(5);
     jScrollPane1.setViewportView(jTextArea1);
 
-    jLabelNbPages.setText("NbPages");
+    jLabelNbPages.setText("Nombre de pages");
     jLabelNbPages.setToolTipText("");
 
-    jTextFieldNbPages.setText("");
     jTextFieldNbPages.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jTextFieldNbPagesActionPerformed(evt);
       }
     });
 
-    jLabel1.setText("NbCopies");
+    jLabel1.setText("Nombre de copies");
 
-    jTextFieldNbCopies.setText("");
     jTextFieldNbCopies.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jTextFieldNbCopiesActionPerformed(evt);
@@ -114,36 +124,26 @@ public class BookCreate extends javax.swing.JPanel implements ActionListener {
 
     jButtonCreer.setText("Créer");
     jButtonCreer.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-          String isbn = null, titre = null, resume = null;
-			String nbPages = null;
-			String nbCopy = null;
-			BookModel model = new BookModel(db);
-			ArrayList<BookEntity> book = new ArrayList();
-			
-			if(evt.getActionCommand().contains("Créer")){
-				isbn = jTextFieldISBN.getText().trim();
-				titre = jTextFieldTitle.getText().trim();
-				nbPages = jTextFieldNbPages.getText().trim();
-				System.out.println("Résult : "+ nbPages);
-				nbCopy = jTextFieldNbCopies.getText().trim();
-				resume = jTextArea1.getText();
-				
-				if(isbn.equalsIgnoreCase("") && titre.equalsIgnoreCase("") && nbPages.equalsIgnoreCase("") && nbCopy.equalsIgnoreCase("") && resume.equalsIgnoreCase("") ){
-					JOptionPane.showMessageDialog(fen,"Remplissez les champs demandés");
-				}
-				else if ( isbn.length() >=1  && titre.length() >=1 && nbPages.length() >=1 && nbCopy.length() >=1 && resume.length() >=1){
-					
-					int nbPage = Integer.parseInt(nbPages);
-					int copy = Integer.parseInt(nbCopy);
-					book.add(new BookEntity(resume, isbn, titre, nbPage));
-					
-					model.insertBook(book);
-					System.out.println("Insertion Réussite!");
-				}
-			}
-        }
-      });
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jButtonCreerActionPerformed(evt);
+      }
+    });
+
+    jLabel2.setText("Nom auteur");
+
+    jLabel3.setText("Prénom auteur");
+
+    jTextFieldAuthorFirstName.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jTextFieldAuthorFirstNameActionPerformed(evt);
+      }
+    });
+
+    jComboBoxAuthor.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+    jLabel4.setText("Séléctionnez un auteur");
+
+    jLabel5.setText("Si l'auteur n'existe pas encore, créez le ici");
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
     this.setLayout(layout);
@@ -152,38 +152,64 @@ public class BookCreate extends javax.swing.JPanel implements ActionListener {
       .addGroup(layout.createSequentialGroup()
         .addContainerGap()
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addComponent(jScrollPane1)
+          .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 559, Short.MAX_VALUE)
           .addGroup(layout.createSequentialGroup()
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
               .addComponent(jLabelResume)
               .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                   .addComponent(jLabelISBN)
-                  .addComponent(jTextFieldISBN, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(72, 72, 72)
+                  .addComponent(jTextFieldISBN, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                   .addComponent(jLabelTitle)
-                  .addComponent(jTextFieldTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(68, 68, 68)
+                  .addComponent(jTextFieldTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                   .addComponent(jLabelNbPages)
-                  .addComponent(jTextFieldNbPages, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(60, 60, 60)
+                  .addComponent(jTextFieldNbPages, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                  .addComponent(jTextFieldNbCopies, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                  .addComponent(jLabel1))))
-            .addGap(0, 17, Short.MAX_VALUE))
-          .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-            .addGap(0, 0, Short.MAX_VALUE)
-            .addComponent(jButtonCreer)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addComponent(jButtonRetour)))
+                  .addComponent(jLabel1)
+                  .addComponent(jTextFieldNbCopies, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)))
+              .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                  .addComponent(jTextFieldAuthorName, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                  .addComponent(jLabel2))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                  .addComponent(jTextFieldAuthorFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                  .addComponent(jLabel3)))
+              .addComponent(jLabel5)
+              .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addComponent(jComboBoxAuthor, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGap(0, 0, Short.MAX_VALUE)))
         .addContainerGap())
+      .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        .addComponent(jButtonCreer)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+        .addComponent(jButtonRetour)
+        .addGap(49, 49, 49))
     );
     layout.setVerticalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(layout.createSequentialGroup()
-        .addGap(47, 47, 47)
+        .addComponent(jLabel5)
+        .addGap(7, 7, 7)
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(jLabel2)
+          .addComponent(jLabel3))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+          .addComponent(jTextFieldAuthorName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jTextFieldAuthorFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+        .addComponent(jLabel4)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+        .addComponent(jComboBoxAuthor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addGap(18, 18, 18)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
           .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(layout.createSequentialGroup()
@@ -205,12 +231,12 @@ public class BookCreate extends javax.swing.JPanel implements ActionListener {
         .addGap(18, 18, 18)
         .addComponent(jLabelResume)
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 227, javax.swing.GroupLayout.PREFERRED_SIZE)
-        .addGap(18, 18, 18)
+        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-          .addComponent(jButtonRetour)
-          .addComponent(jButtonCreer))
-        .addContainerGap(18, Short.MAX_VALUE))
+          .addComponent(jButtonCreer)
+          .addComponent(jButtonRetour))
+        .addContainerGap(125, Short.MAX_VALUE))
     );
   }// </editor-fold>//GEN-END:initComponents
 
@@ -235,18 +261,35 @@ public class BookCreate extends javax.swing.JPanel implements ActionListener {
 		fen.change(fen.BOOK_LIST);
   }//GEN-LAST:event_jButtonRetourActionPerformed
 
+  private void jTextFieldAuthorFirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAuthorFirstNameActionPerformed
+		// TODO add your handling code here:
+  }//GEN-LAST:event_jTextFieldAuthorFirstNameActionPerformed
+
+  private void jButtonCreerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreerActionPerformed
+		// TODO add your handling code here:
+		this.createBook();
+  }//GEN-LAST:event_jButtonCreerActionPerformed
+
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JButton jButton1;
+  private javax.swing.JButton jButton2;
   private javax.swing.JButton jButtonCreer;
   private javax.swing.JButton jButtonRetour;
+  private javax.swing.JComboBox jComboBoxAuthor;
   private javax.swing.JLabel jLabel1;
+  private javax.swing.JLabel jLabel2;
+  private javax.swing.JLabel jLabel3;
+  private javax.swing.JLabel jLabel4;
+  private javax.swing.JLabel jLabel5;
   private javax.swing.JLabel jLabelISBN;
   private javax.swing.JLabel jLabelNbPages;
   private javax.swing.JLabel jLabelResume;
   private javax.swing.JLabel jLabelTitle;
   private javax.swing.JScrollPane jScrollPane1;
   private javax.swing.JTextArea jTextArea1;
+  private javax.swing.JTextField jTextFieldAuthorFirstName;
+  private javax.swing.JTextField jTextFieldAuthorName;
   private javax.swing.JTextField jTextFieldISBN;
   private javax.swing.JTextField jTextFieldNbCopies;
   private javax.swing.JTextField jTextFieldNbPages;
@@ -266,6 +309,57 @@ public class BookCreate extends javax.swing.JPanel implements ActionListener {
 			// fen.removeAll();
 		}
 		//	throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
+
+	private void populateAuteurs() {
+		AuthorModel authorDAO = new AuthorModel(this.db);
+		ArrayList<AuthorEntity> author;
+		author = (authorDAO.lister());
+
+		jComboBoxAuthor.setModel(new javax.swing.DefaultComboBoxModel(author.toArray()));
+		jComboBoxAuthor.insertItemAt("-- Selectionner un auteur --", 0);
+		jComboBoxAuthor.setSelectedIndex(0);
+	}
+
+	public void createBook() {
+		String isbn, titre, resume;
+		int nbPages;
+		String nbCopy;
+		AuthorEntity author;
+		BookModel bookDAO = new BookModel(db);
+
+		isbn = jTextFieldISBN.getText().trim();
+		titre = jTextFieldTitle.getText().trim();
+		nbPages = Integer.parseInt(jTextFieldNbPages.getText().trim());
+		System.out.println("Résult : " + nbPages);
+		nbCopy = jTextFieldNbCopies.getText().trim();
+		resume = jTextArea1.getText();
+		try {
+			author = (AuthorEntity) jComboBoxAuthor.getSelectedItem();
+			BookEntity book = new BookEntity(author, resume, isbn, titre, nbPages);
+			System.out.println(book);
+			bookDAO.insertBook(book);
+		} catch (Exception e) {
+			System.out.println(e.getStackTrace());
+			String lastName = jTextFieldAuthorName.getText().trim();
+			String firstName = jTextFieldAuthorFirstName.getText().trim();
+			author = new AuthorEntity(lastName, firstName);
+			BookEntity book = new BookEntity(author, resume, isbn, titre, nbPages);
+			bookDAO.insertBookWithNewAuthor(book, author);
+		}
+		//System.out.println(author);
+		/*
+		 if (isbn.equalsIgnoreCase("") && titre.equalsIgnoreCase("") && nbPages.equalsIgnoreCase("") && nbCopy.equalsIgnoreCase("") && resume.equalsIgnoreCase("")) {
+		 JOptionPane.showMessageDialog(fen, "Remplissez les champs demandés");
+		 } else if (isbn.length() >= 1 && titre.length() >= 1 && nbPages.length() >= 1 && nbCopy.length() >= 1 && resume.length() >= 1) {
+
+		 int nbPage = Integer.parseInt(nbPages);
+		 int copy = Integer.parseInt(nbCopy);
+		 book.add(new BookEntity(resume, isbn, titre, nbPage));
+
+		 model.insertBook(book);
+		 System.out.println("Insertion Réussite!");
+		 }*/
 	}
 
 }
