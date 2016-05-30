@@ -22,6 +22,10 @@ public class AuthorEntity extends Entity{
 		this.firstname = firstname;
 	
 	}
+
+	public int getIdAuthor() {
+		return idAuthor;
+	}
 	
 	public int getAuthor() {
 		return idAuthor;
@@ -44,8 +48,9 @@ public class AuthorEntity extends Entity{
 	
 	@Override
 	public String toString() {
-		return "AuthorEntity [idAuthor=" + idAuthor + ", name=" + name
-				+ ", firstname=" + firstname + "]";
+//		return "AuthorEntity [idAuthor=" + idAuthor + ", name=" + name
+//				+ ", firstname=" + firstname + "]";
+		return name + ", " + firstname;
 	}
 	
 

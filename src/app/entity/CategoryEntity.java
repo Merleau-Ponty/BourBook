@@ -11,6 +11,10 @@ public class CategoryEntity extends Entity{
 		this.idCategory = idCategory;
 		this.label = label;
 	}
+
+	public CategoryEntity(String string) {
+		throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+	}
 	
 	public int getIdCategory() {
 		return idCategory;
