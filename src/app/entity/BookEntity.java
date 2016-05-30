@@ -1,8 +1,10 @@
 package app.entity;
 
+
 public class BookEntity extends Entity {
 
 	private int id;
+	private int idAuthor;
 	private int idCategory;
 	private String resume;
 	private String isbn;
@@ -10,12 +12,13 @@ public class BookEntity extends Entity {
 	private int nbPages;
 	public AuthorEntity author;
 
+
 	// Constructeur v1
-	public BookEntity(int id, AuthorEntity author, int idCategory, String resume,
-					String isbn, String title, int nbPages) {
+	public BookEntity(int id, int idAuthor, int idCategory, String resume,
+			String isbn, String title, int nbPages) {
 		super();
 		this.id = id;
-		this.author = author;
+		this.idAuthor = idAuthor;
 		this.idCategory = idCategory;
 		this.resume = resume;
 		this.isbn = isbn;
@@ -23,36 +26,16 @@ public class BookEntity extends Entity {
 		this.nbPages = nbPages;
 		// TODO Auto-generated constructor stub
 	}
-
-	public BookEntity(AuthorEntity author, String resume,
-					String isbn, String title, int nbPages) {
-		super();
-		this.author = author;
-		this.resume = resume;
-		this.isbn = isbn;
-		this.title = title;
-		this.nbPages = nbPages;
-		// TODO Auto-generated constructor stub
-	}
-
-	// Constructeur v2
-	public BookEntity(String title, String resume, int nbPages) {
-		super();
-		this.title = title;
-		this.resume = resume;
-		this.nbPages = nbPages;
-		// TODO Auto-generated constructor stub
-	}
-
+	
+	
 	// Constructeur v3 
-	public BookEntity(String title, AuthorEntity author, String resume, int nbPages) {
+	public BookEntity(String title, AuthorEntity author, int nbPages){
 		super();
 		this.title = title;
 		this.author = author;
-		this.resume = resume;
 		this.nbPages = nbPages;
 	}
-
+	
 	public BookEntity(String resume, String isbn, String title, int nbPages) {
 		super();
 		this.resume = resume;
@@ -82,15 +65,23 @@ public class BookEntity extends Entity {
 	}
 
 	public int getIdAuthor() {
-		return author.getIdAuthor();
+		return idAuthor;
 	}
 
 	public int getIdCategory() {
 		return idCategory;
 	}
+	
+	public AuthorEntity getAuthor(){
+		return author;
+	}
 
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public void setIdAuthor(int idAuthor) {
+		this.idAuthor = idAuthor;
 	}
 
 	public void setIdCategory(int idCategory) {
@@ -112,18 +103,19 @@ public class BookEntity extends Entity {
 	public void setNbPages(int nbPages) {
 		this.nbPages = nbPages;
 	}
+	
 
 	@Override
 	public String toString() {
-		return "BookEntity [id=" + id + ", idAuthor=" + this.getIdAuthor()
-						+ ", idCategory=" + idCategory + ", resume=" + resume + ","
-						+ "title=" + title + ", isbn=" + isbn + ", nbPages=" + nbPages
-						+ "]";
+		return "BookEntity [id=" + id + ", idAuthor=" + idAuthor
+				+ ", idCategory=" + idCategory + ", resume=" + resume + ","
+				+ "title=" + title + ", isbn=" + isbn + ", nbPages=" + nbPages
+				+ "]";
 	}
 
 	/**
 	 * Renvoie un extrait du résumé du livre
-	 *
+	 * 
 	 * @return String
 	 */
 	public String getExtract() {

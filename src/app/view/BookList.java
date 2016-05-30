@@ -9,11 +9,13 @@ import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
-import app.App;
+import app.main.App;
 import app.database.Database;
+import app.entity.AuthorEntity;
 import app.entity.BookEntity;
 import app.model.BookModel;
 import app.model.CategoryModel;
+
 import javax.swing.table.TableModel;
 
 /*
@@ -103,7 +105,7 @@ public class BookList extends javax.swing.JPanel {
         {null, null, null}
       },
       new String [] {
-        "Titre", "Résumé", "Nb Pages"
+        "Titre", "Auteur", "Nb Pages"
       }
     ) {
       Class[] types = new Class [] {
@@ -192,7 +194,7 @@ public class BookList extends javax.swing.JPanel {
   private void jButtonSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSearchMouseClicked
 		Database db = App.getDb();
 
-		String title, author, category = new String();
+		String title = new String(), author = new String(), category = new String();
 		BookModel searchTitre = new BookModel(db);
 		ArrayList<BookEntity> books;
 		books = new ArrayList<>();
@@ -208,31 +210,41 @@ public class BookList extends javax.swing.JPanel {
 		author = jTextFieldSearchAuthor.getText().trim();
 		category = (String) jComboBoxSearchCategory.getSelectedItem();
 
-		System.out.println("Résult : " + category + "\n Length :" + category.length() + " caractère");
-
 		if (title.equalsIgnoreCase("") && author.equalsIgnoreCase("") && category.equalsIgnoreCase("...")) {
-			// cas où les champs sont vides
-			JOptionPane.showMessageDialog(fen, "Veuillez remplir au moins un des champs proposés");
+			// si les champs sont vides on récupère tous les livres existantes
+			books = searchTitre.lister();
+			
+			// on insère les données dans le tableau 
+			for (int i = 0; i < books.size(); i++) {
+				String titre = books.get(i).getTitle();
+				AuthorEntity auteur = books.get(i).getAuthor();
+				int nbpages = books.get(i).getNbPages();
+
+				Object[] data = {titre, auteur, nbpages};
+				tableModel.addRow(data);
+
+			}
 		} else if (title.length() >= 1) {
 
-			books = searchTitre.searchTitle(title);
+			books = searchTitre.search(title);
 
 			if (books.size() == 0) {
 				JOptionPane.showMessageDialog(fen, "Aucun livre correspondant");
 			}
 
+			// insertion des données dans le tableau
 			for (int i = 0; i < books.size(); i++) {
 				String titre = books.get(i).getTitle();
-				String resum = books.get(i).getResume();
+				AuthorEntity auteur = books.get(i).getAuthor();
 				int nbpages = books.get(i).getNbPages();
 
-				Object[] data = {titre, resum, nbpages};
+				Object[] data = {titre, auteur, nbpages};
 				tableModel.addRow(data);
 
 			}
 
 		} else if (author.length() >= 1) {
-			books = searchTitre.searchAuteur(author);
+			books = searchTitre.search(author);
 
 			if (books.size() == 0) {
 				JOptionPane.showMessageDialog(fen, "Aucun livre correspondant");
@@ -240,16 +252,16 @@ public class BookList extends javax.swing.JPanel {
 
 			for (int i = 0; i < books.size(); i++) {
 				String titre = books.get(i).getTitle();
-				String resum = books.get(i).getResume();
+				AuthorEntity auteur = books.get(i).getAuthor() ;
 				int nbpages = books.get(i).getNbPages();
 
-				Object[] data = {titre, resum, nbpages};
+				Object[] data = {titre, auteur, nbpages};
 				tableModel.addRow(data);
 
 			}
 
 		} else if (category.length() >= 1) {
-			books = searchTitre.searchCateg(category);
+			books = searchTitre.search(category);
 
 			if (books.size() == 0) {
 				JOptionPane.showMessageDialog(fen, "Aucun livre correspondant");
@@ -257,10 +269,10 @@ public class BookList extends javax.swing.JPanel {
 
 			for (int i = 0; i < books.size(); i++) {
 				String titre = books.get(i).getTitle();
-				String resum = books.get(i).getResume();
+				AuthorEntity auteur = books.get(i).getAuthor();
 				int nbpages = books.get(i).getNbPages();
 
-				Object[] data = {titre, resum, nbpages};
+				Object[] data = {titre, auteur, nbpages};
 				tableModel.addRow(data);
 
 			}

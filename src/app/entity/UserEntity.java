@@ -25,19 +25,6 @@ public class UserEntity extends Entity{
 		this.service = service;
 	}
 	
-	
-	public UserEntity(String login, String password, String name, String firstname, String phone, 
-			String mail, String service) {
-		super();
-		this.login = login;
-		this.password = password;
-		this.name = name;
-		this.firstname = firstname;
-		this.phone = phone;
-		this.mail = mail;
-		this.service = service;
-	}
-	
 	public UserEntity(String name, String firstname) {
 		super();
 		this.name = name;

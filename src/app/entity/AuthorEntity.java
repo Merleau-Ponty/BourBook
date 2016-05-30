@@ -16,15 +16,10 @@ public class AuthorEntity extends Entity{
 	}
 	
 	// Constructeur v2
-	public AuthorEntity(String name, String firstname) {
+	public AuthorEntity(String firstname, String name) {
 		super();
-		this.name = name;
 		this.firstname = firstname;
-	
-	}
-
-	public int getIdAuthor() {
-		return idAuthor;
+		this.name = name;
 	}
 	
 	public int getAuthor() {
@@ -48,9 +43,7 @@ public class AuthorEntity extends Entity{
 	
 	@Override
 	public String toString() {
-//		return "AuthorEntity [idAuthor=" + idAuthor + ", name=" + name
-//				+ ", firstname=" + firstname + "]";
-		return name + ", " + firstname;
+		return firstname +" "+ name;
 	}
 	
 

@@ -8,16 +8,6 @@ package app.view;
 import static app.view.MenuBar.BOOK_LIST;
 import static app.view.MenuBar.USER_LIST;
 
-import java.util.ArrayList;
-
-import javax.swing.JOptionPane;
-
-import app.App;
-import app.entity.BookEntity;
-import app.entity.UserEntity;
-import app.model.BookModel;
-import app.model.UserModel;
-
 /**
  *
  * @author Tom
@@ -61,93 +51,67 @@ public class UserCreate extends javax.swing.JPanel {
     jButtonCreate = new javax.swing.JButton();
     jButtonRetour = new javax.swing.JButton();
 
-    jLabelUserName.setText("Nom");
+    jLabelUserName.setText("jLabelUserName");
 
-    jTextFieldUserName.setText("Doe");
+    jTextFieldUserName.setText("jTextFieldUserName");
 
-    jLabelUserFirstName.setText("Prenom");
+    jLabelUserFirstName.setText("jLabelUserFirstName");
 
-    jTextFieldUserFirstName.setText("John");
+    jTextFieldUserFirstName.setText("jTextFieldUserFirstName");
     jTextFieldUserFirstName.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jTextFieldUserFirstNameActionPerformed(evt);
       }
     });
 
-    jTextFieldUserLogin.setText("doej");
+    jTextFieldUserLogin.setText("jTextFieldUserLogin");
     jTextFieldUserLogin.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jTextFieldUserLoginActionPerformed(evt);
       }
     });
 
-    jLabelUserLogin.setText("login");
+    jLabelUserLogin.setText("jLabelUserLogin");
 
-    jTextFieldUserPass.setText("password");
+    jTextFieldUserPass.setText("jTextFieldUserPass");
     jTextFieldUserPass.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jTextFieldUserPassActionPerformed(evt);
       }
     });
 
-    jLabelUserPass.setText("Password");
+    jLabelUserPass.setText("jLabelUserPass");
 
-    jTextFieldUserPhone.setText("0612345678");
+    jTextFieldUserPhone.setText("jTextFieldUserPhone");
     jTextFieldUserPhone.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jTextFieldUserPhoneActionPerformed(evt);
       }
     });
 
-    jLabelUserPhone.setText("Telephone");
+    jLabelUserPhone.setText("jLabelUserPass");
 
-    jTextFieldUserMail.setText("mail@domain.com");
+    jTextFieldUserMail.setText("jTextFieldUserMail");
     jTextFieldUserMail.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jTextFieldUserMailActionPerformed(evt);
       }
     });
 
-    jLabelUserMail.setText("Adresse e-mail");
+    jLabelUserMail.setText("jLabelUserMail");
 
-    jTextFieldUserService.setText("Comptabilite");
+    jTextFieldUserService.setText("jTextFieldUserService");
     jTextFieldUserService.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jTextFieldUserServiceActionPerformed(evt);
       }
     });
 
-    jLabelUserService.setText("Service");
+    jLabelUserService.setText("jLabelUserService");
 
-    jButtonCreate.setText("Sauvegarder");
-    jButtonCreate.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-          String firstname = null, name = null, login = null, password = null, phone = null, mail = null, service = null;
-			
-			if(evt.getActionCommand().contains("Sauvegarder")){
+    jButtonCreate.setText("jButtonCreate");
 
-				firstname = jTextFieldUserFirstName.getText().trim();
-				name = jTextFieldUserName.getText().trim();
-				login = jTextFieldUserLogin.getText().trim();
-				password = jTextFieldUserPass.getText().trim();
-				phone = jTextFieldUserPhone.getText().trim();
-				mail = jTextFieldUserMail.getText().trim();
-				service = jTextFieldUserService.getText().trim();
-
-				if(login.equals("") && password.equals("")){
-					JOptionPane.showMessageDialog(fen,"Remplissez les champs obligatoires");
-				} else {
-					UserEntity user = new UserEntity(login, password, name, firstname, phone, mail, service);
-					UserModel model = new UserModel(App.getDb());
-					model.insertUser(user);
-					System.out.println("Insertion reussie!");
-					JOptionPane.showMessageDialog(fen,"L'utilisateur "+user.getFirstname()+" "+user.getName()+" est bien sauvegarde !");
-				}
-			}
-        }
-      });
-
-    jButtonRetour.setText("Retour");
+    jButtonRetour.setText("jButtonRetour");
     jButtonRetour.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jButtonRetourActionPerformed(evt);
@@ -161,21 +125,21 @@ public class UserCreate extends javax.swing.JPanel {
       .addGroup(layout.createSequentialGroup()
         .addGap(29, 29, 29)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addComponent(jTextFieldUserName, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jTextFieldUserName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(jLabelUserName)
-          .addComponent(jTextFieldUserPass, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jTextFieldUserPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(jLabelUserPass)
-          .addComponent(jTextFieldUserLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jTextFieldUserLogin, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(jLabelUserLogin)
-          .addComponent(jTextFieldUserFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jTextFieldUserFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(jLabelUserFirstName))
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 185, Short.MAX_VALUE)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addComponent(jTextFieldUserPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jTextFieldUserPhone, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(jLabelUserPhone)
-          .addComponent(jTextFieldUserMail, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jTextFieldUserMail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(jLabelUserMail)
-          .addComponent(jTextFieldUserService, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jTextFieldUserService, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(jLabelUserService))
         .addGap(220, 220, 220))
       .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()

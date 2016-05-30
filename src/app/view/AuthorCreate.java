@@ -5,16 +5,6 @@
  */
 package app.view;
 
-import app.App;
-import app.database.Database;
-import app.entity.AuthorEntity;
-import app.entity.BookEntity;
-import app.model.AuthorModel;
-import app.model.BookModel;
-import java.util.ArrayList;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-
 /**
  *
  * @author Tom
@@ -22,17 +12,16 @@ import javax.swing.table.DefaultTableModel;
 public class AuthorCreate extends javax.swing.JPanel {
 
 	MenuBar fen;
-
 	/**
 	 * Creates new form AuthorCreate
-	 *
 	 * @param fen
 	 */
 	public AuthorCreate(MenuBar fen) {
 		super();
 		initComponents();
-		this.fen = fen;
+		this.fen=fen;	 
 	}
+
 
 	/**
 	 * This method is called from within the constructor to initialize the form.
@@ -44,46 +33,63 @@ public class AuthorCreate extends javax.swing.JPanel {
   private void initComponents() {
 
     jLabelAuthorName = new javax.swing.JLabel();
-    jTextFieldAuthorNameCreate = new javax.swing.JTextField();
+    jTextFieldAuthorName = new javax.swing.JTextField(20);
     jLabelAuthorFirstName = new javax.swing.JLabel();
-    jTextFieldAuthorFirstNameCreate = new javax.swing.JTextField();
+    jTextFieldAuthorFirstName = new javax.swing.JTextField(20);
     JLabelCreateAuthor = new javax.swing.JLabel();
     JLabelCreateAuthor1 = new javax.swing.JLabel();
-    jTextFieldAuthorName = new javax.swing.JTextField();
+    jLabelAuthorName1 = new javax.swing.JLabel();
+    jTextFieldAuthorName1 = new javax.swing.JTextField(20);
+    jLabelAuthorFirstName1 = new javax.swing.JLabel();
+    jTextFieldAuthorFirstName1 = new javax.swing.JTextField(20);
     jButtonCreateAthor = new javax.swing.JButton();
     jButtonSearchAthor = new javax.swing.JButton();
     jScrollPane1 = new javax.swing.JScrollPane();
-    jTableAuthorList = new javax.swing.JTable();
+    jTableAuthor = new javax.swing.JTable();
 
     jLabelAuthorName.setText("Nom");
 
-    jTextFieldAuthorNameCreate.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        jTextFieldAuthorNameCreateActionPerformed(evt);
-      }
-    });
-
-    jLabelAuthorFirstName.setText("Prénom");
-
-    jTextFieldAuthorFirstNameCreate.addActionListener(new java.awt.event.ActionListener() {
-      public void actionPerformed(java.awt.event.ActionEvent evt) {
-        jTextFieldAuthorFirstNameCreateActionPerformed(evt);
-      }
-    });
-
-    JLabelCreateAuthor.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-    JLabelCreateAuthor.setText("Ajouter un auteur");
-
-    JLabelCreateAuthor1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-    JLabelCreateAuthor1.setText("Rechercher un auteur");
-
+    jTextFieldAuthorName.setText("");
     jTextFieldAuthorName.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jTextFieldAuthorNameActionPerformed(evt);
       }
     });
 
-    jButtonCreateAthor.setText("Ajouter");
+    jLabelAuthorFirstName.setText("Prénom");
+
+    jTextFieldAuthorFirstName.setText("");
+    jTextFieldAuthorFirstName.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jTextFieldAuthorFirstNameActionPerformed(evt);
+      }
+    });
+
+    JLabelCreateAuthor.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+    JLabelCreateAuthor.setText("Création Auteur");
+
+    JLabelCreateAuthor1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+    JLabelCreateAuthor1.setText("Recherche Auteur");
+
+    jLabelAuthorName1.setText("Nom");
+
+    jTextFieldAuthorName1.setText("");
+    jTextFieldAuthorName1.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jTextFieldAuthorName1ActionPerformed(evt);
+      }
+    });
+
+    jLabelAuthorFirstName1.setText("Prénom");
+
+    jTextFieldAuthorFirstName1.setText("");
+    jTextFieldAuthorFirstName1.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        jTextFieldAuthorFirstName1ActionPerformed(evt);
+      }
+    });
+
+    jButtonCreateAthor.setText("Créer");
     jButtonCreateAthor.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jButtonCreateAthorActionPerformed(evt);
@@ -97,15 +103,17 @@ public class AuthorCreate extends javax.swing.JPanel {
       }
     });
 
-    jTableAuthorList.setModel(new javax.swing.table.DefaultTableModel(
+    jTableAuthor.setModel(new javax.swing.table.DefaultTableModel(
       new Object [][] {
-        {null, null}
+        {null, null, null, null},
+        {null, null, null, null},
+        {null, null, null, null}
       },
       new String [] {
-        "Prénom", "Nom"
+        "Id", "Nom", "Prénom"
       }
     ));
-    jScrollPane1.setViewportView(jTableAuthorList);
+    jScrollPane1.setViewportView(jTableAuthor);
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
     this.setLayout(layout);
@@ -114,145 +122,111 @@ public class AuthorCreate extends javax.swing.JPanel {
       .addGroup(layout.createSequentialGroup()
         .addGap(21, 21, 21)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-          .addGroup(layout.createSequentialGroup()
-            .addComponent(JLabelCreateAuthor)
-            .addGap(0, 0, Short.MAX_VALUE))
+          .addComponent(JLabelCreateAuthor)
           .addGroup(layout.createSequentialGroup()
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-              .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                .addComponent(JLabelCreateAuthor1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jTextFieldAuthorName))
-              .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabelAuthorFirstName)
-                .addGap(93, 93, 93)
-                .addComponent(jLabelAuthorName))
-              .addGroup(layout.createSequentialGroup()
-                .addComponent(jTextFieldAuthorNameCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jTextFieldAuthorFirstNameCreate, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+              .addComponent(jLabelAuthorName)
+              .addComponent(jTextFieldAuthorName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addComponent(jLabelAuthorName1)
+              .addComponent(jTextFieldAuthorName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addComponent(JLabelCreateAuthor1))
+            .addGap(18, 18, 18)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+              .addComponent(jLabelAuthorFirstName)
+              .addComponent(jTextFieldAuthorFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+              .addComponent(jLabelAuthorFirstName1)
+              .addComponent(jTextFieldAuthorFirstName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(31, 31, 31)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
               .addComponent(jButtonSearchAthor)
-              .addComponent(jButtonCreateAthor, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE))))
-        .addContainerGap(113, Short.MAX_VALUE))
+              .addComponent(jButtonCreateAthor))))
+        .addContainerGap(22, Short.MAX_VALUE))
       .addGroup(layout.createSequentialGroup()
         .addContainerGap()
-        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 471, Short.MAX_VALUE)
+        .addComponent(jScrollPane1)
         .addContainerGap())
     );
     layout.setVerticalGroup(
       layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
       .addGroup(layout.createSequentialGroup()
+        .addGap(19, 19, 19)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
           .addGroup(layout.createSequentialGroup()
-            .addGap(19, 19, 19)
-            .addComponent(JLabelCreateAuthor)
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-              .addComponent(jLabelAuthorFirstName)
-              .addComponent(jLabelAuthorName))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-              .addComponent(jTextFieldAuthorNameCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-              .addComponent(jTextFieldAuthorFirstNameCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-              .addComponent(jButtonCreateAthor))
-            .addGap(21, 21, 21)
-            .addComponent(JLabelCreateAuthor1)
-            .addGap(26, 26, 26)
-            .addComponent(jTextFieldAuthorName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+              .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabelAuthorFirstName)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldAuthorFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(41, 41, 41))
+              .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                .addGap(9, 9, 9)
+                .addComponent(jButtonCreateAthor)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+              .addGroup(layout.createSequentialGroup()
+                .addComponent(jLabelAuthorFirstName1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextFieldAuthorFirstName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+              .addGroup(layout.createSequentialGroup()
+                .addGap(9, 9, 9)
+                .addComponent(jButtonSearchAthor))))
           .addGroup(layout.createSequentialGroup()
-            .addContainerGap()
-            .addComponent(jButtonSearchAthor)))
+            .addComponent(JLabelCreateAuthor)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addComponent(jLabelAuthorName)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jTextFieldAuthorName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(18, 18, 18)
+            .addComponent(JLabelCreateAuthor1)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jLabelAuthorName1)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+            .addComponent(jTextFieldAuthorName1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
         .addGap(18, 18, 18)
-        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 332, Short.MAX_VALUE)
+        .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 333, Short.MAX_VALUE)
         .addContainerGap())
     );
   }// </editor-fold>//GEN-END:initComponents
 
-  private void jTextFieldAuthorNameCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAuthorNameCreateActionPerformed
-		// TODO add your handling code here:
-  }//GEN-LAST:event_jTextFieldAuthorNameCreateActionPerformed
-
-  private void jTextFieldAuthorFirstNameCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAuthorFirstNameCreateActionPerformed
-		// TODO add your handling code here:
-  }//GEN-LAST:event_jTextFieldAuthorFirstNameCreateActionPerformed
-
   private void jTextFieldAuthorNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAuthorNameActionPerformed
-		// TODO add your handling code here:
+    // TODO add your handling code here:
   }//GEN-LAST:event_jTextFieldAuthorNameActionPerformed
 
-	// Bouton pour ajouter un auteur
+  private void jTextFieldAuthorFirstNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAuthorFirstNameActionPerformed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_jTextFieldAuthorFirstNameActionPerformed
+
+  private void jTextFieldAuthorName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAuthorName1ActionPerformed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_jTextFieldAuthorName1ActionPerformed
+
+  private void jTextFieldAuthorFirstName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldAuthorFirstName1ActionPerformed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_jTextFieldAuthorFirstName1ActionPerformed
+
   private void jButtonCreateAthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateAthorActionPerformed
-		Database db = App.getDb();
-
-		String name, firstName;
-		AuthorModel createAuthor = new AuthorModel(db);
-
-		name = jTextFieldAuthorNameCreate.getText().trim();
-		firstName = jTextFieldAuthorFirstNameCreate.getText().trim();
-
-		if (name.equalsIgnoreCase("")) {
-			// cas où les champs sont vides
-			JOptionPane.showMessageDialog(fen, "Veuillez remplir au moins un des champs proposés");
-		} else if (name.length() >= 1) {
-
-			createAuthor.createAuthor(name, firstName);
-		}
+    // TODO add your handling code here:
   }//GEN-LAST:event_jButtonCreateAthorActionPerformed
 
   private void jButtonSearchAthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchAthorActionPerformed
-		Database db = App.getDb();
-
-		String name;
-		AuthorModel searchName = new AuthorModel(db);
-		ArrayList<AuthorEntity> authors = new ArrayList<>();
-
-		// vide le JTable à chaque recherche avant affichage résultat
-		DefaultTableModel tableModel = (DefaultTableModel) jTableAuthorList.getModel();
-		while (tableModel.getRowCount() > 0) {
-			tableModel.removeRow(0);
-		}
-
-		// récupération données
-		name = jTextFieldAuthorName.getText().trim();
-
-		if (name.equalsIgnoreCase("")) {
-			// cas où les champs sont vides
-			JOptionPane.showMessageDialog(fen, "Veuillez remplir au moins un des champs proposés");
-		} else if (name.length() >= 1) {
-
-			authors = searchName.searchName(name);
-
-			if (authors.isEmpty()) {
-				JOptionPane.showMessageDialog(fen, "Aucun auteur correspondant");
-			}
-
-		}
-		if (authors.isEmpty()) {
-			JOptionPane.showMessageDialog(fen, "Aucun auteur correspondant");
-		}
-
-		for (int i = 0; i < authors.size(); i++) {
-			String nom = authors.get(i).getName();
-			String prenom = authors.get(i).getFirstname();
-
-			Object[] data = {nom, prenom};
-			tableModel.addRow(data);
-		}
+    // TODO add your handling code here:
   }//GEN-LAST:event_jButtonSearchAthorActionPerformed
 
-
+  
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JLabel JLabelCreateAuthor;
   private javax.swing.JLabel JLabelCreateAuthor1;
   private javax.swing.JButton jButtonCreateAthor;
   private javax.swing.JButton jButtonSearchAthor;
   private javax.swing.JLabel jLabelAuthorFirstName;
+  private javax.swing.JLabel jLabelAuthorFirstName1;
   private javax.swing.JLabel jLabelAuthorName;
+  private javax.swing.JLabel jLabelAuthorName1;
   private javax.swing.JScrollPane jScrollPane1;
-  private javax.swing.JTable jTableAuthorList;
-  private javax.swing.JTextField jTextFieldAuthorFirstNameCreate;
+  private javax.swing.JTable jTableAuthor;
+  private javax.swing.JTextField jTextFieldAuthorFirstName;
+  private javax.swing.JTextField jTextFieldAuthorFirstName1;
   private javax.swing.JTextField jTextFieldAuthorName;
-  private javax.swing.JTextField jTextFieldAuthorNameCreate;
+  private javax.swing.JTextField jTextFieldAuthorName1;
   // End of variables declaration//GEN-END:variables
 }

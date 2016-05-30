@@ -6,7 +6,6 @@ import java.sql.Statement;
 import java.util.ArrayList;
 
 import app.database.Database;
-import app.entity.BookEntity;
 import app.entity.UserEntity;
 
 public class UserModel extends Model{
@@ -62,21 +61,6 @@ public class UserModel extends Model{
 		
 		return identity;
 		
-	}
-	
-	/**
-	 * Insertion en Bdd d'un utilisateur
-	 * @param UserEntity user
-	 */
-	public void insertUser(UserEntity user){
-		try {
-			Statement statement = db.getConnection().createStatement();
-			String req = "INSERT INTO USER (`LOGIN`, `PASSWORD`, `NAME`, `FIRSTNAME`, `PHONE`, `MAIL`, `SERVICE`) VALUES ("
-					+ "'"+ user.getLogin()+"', '"+ user.getPassword()+"', '"+ user.getName()+"', '"+ user.getFirstname()+"', '"+ user.getPhone()+"', '"+ user.getMail()+"', '"+ user.getService()+"');";
-			statement.executeUpdate(req);
-		} catch (SQLException e){
-			System.err.println("Erreur d'insertion dans la BDD : "+e);
-		}
 	}
 
 }

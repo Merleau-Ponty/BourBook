@@ -7,11 +7,6 @@
         <Property name="text" type="java.lang.String" value="jButton1"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jButton2"/>
-      </Properties>
-    </Component>
   </NonVisualComponents>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
@@ -31,81 +26,49 @@
           <Group type="102" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jScrollPane1" pref="559" max="32767" attributes="0"/>
+                  <Component id="jScrollPane1" max="32767" attributes="0"/>
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabelResume" min="-2" max="-2" attributes="0"/>
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabelISBN" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldISBN" min="-2" pref="86" max="-2" attributes="0"/>
+                                  <Component id="jLabelISBN" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldISBN" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="72" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabelTitle" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldTitle" min="-2" pref="72" max="-2" attributes="0"/>
+                                  <Component id="jLabelTitle" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldTitle" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabelNbPages" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldNbPages" min="-2" pref="97" max="-2" attributes="0"/>
+                                  <Component id="jLabelNbPages" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jTextFieldNbPages" alignment="0" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="60" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jTextFieldNbCopies" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jTextFieldNbCopies" min="-2" pref="102" max="-2" attributes="0"/>
                               </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jTextFieldAuthorName" alignment="0" min="-2" pref="70" max="-2" attributes="0"/>
-                                  <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="jTextFieldAuthorFirstName" min="-2" pref="70" max="-2" attributes="0"/>
-                                  <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Component id="jLabel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="jComboBoxAuthor" alignment="0" max="32767" attributes="0"/>
-                              <Component id="jLabel4" alignment="0" max="32767" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace min="0" pref="17" max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Component id="jButtonCreer" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jButtonRetour" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="jButtonCreer" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jButtonRetour" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="49" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextFieldAuthorName" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextFieldAuthorFirstName" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jComboBoxAuthor" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="103" alignment="0" groupAlignment="1" attributes="0">
                       <Group type="102" attributes="0">
@@ -134,13 +97,13 @@
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jLabelResume" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="132" max="-2" attributes="0"/>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="227" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButtonCreer" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonRetour" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonCreer" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="125" max="32767" attributes="0"/>
+              <EmptySpace pref="18" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -148,27 +111,33 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabelISBN">
       <Properties>
-        <Property name="text" type="java.lang.String" value="ISBN"/>
+        <Property name="text" type="java.lang.String" value="jLabelISBN"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldISBN">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jTextFieldISBN"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldISBNActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelTitle">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Titre"/>
+        <Property name="text" type="java.lang.String" value="jLabelTitle"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldTitle">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jTextFieldTitle"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldTitleActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelResume">
       <Properties>
-        <Property name="text" type="java.lang.String" value="R&#xe9;sum&#xe9;"/>
+        <Property name="text" type="java.lang.String" value="jLabelResume"/>
       </Properties>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -188,21 +157,27 @@
     </Container>
     <Component class="javax.swing.JLabel" name="jLabelNbPages">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Nombre de pages"/>
+        <Property name="text" type="java.lang.String" value="jLabelNbPages"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldNbPages">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jTextFieldNbPages"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldNbPagesActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Nombre de copies"/>
+        <Property name="text" type="java.lang.String" value="jLabelNbCopies"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextFieldNbCopies">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jTextFieldNbCopies"/>
+      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldNbCopiesActionPerformed"/>
       </Events>
@@ -217,49 +192,7 @@
     </Component>
     <Component class="javax.swing.JButton" name="jButtonCreer">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cr&#xe9;er"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCreerActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Nom auteur"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldAuthorName">
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel3">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Pr&#xe9;nom auteur"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldAuthorFirstName">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldAuthorFirstNameActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JComboBox" name="jComboBoxAuthor">
-      <Properties>
-        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-          <StringArray count="4">
-            <StringItem index="0" value="Item 1"/>
-            <StringItem index="1" value="Item 2"/>
-            <StringItem index="2" value="Item 3"/>
-            <StringItem index="3" value="Item 4"/>
-          </StringArray>
-        </Property>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel4">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="S&#xe9;l&#xe9;ctionnez un auteur"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel5">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Si l&apos;auteur n&apos;existe pas encore, cr&#xe9;ez le ici"/>
+        <Property name="text" type="java.lang.String" value="jButtonCreer"/>
       </Properties>
     </Component>
   </SubComponents>

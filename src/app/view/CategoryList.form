@@ -19,23 +19,19 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabelAuthorName" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldCategoryName" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelAuthorName1" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldCategory" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="JLabelCreateAuthor1" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="JLabelCreateAuthor" alignment="0" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="jTextFieldCategoryCreate" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jLabelCategoryCreate" alignment="0" max="32767" attributes="0"/>
-                  </Group>
-                  <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                      <Component id="jTextFieldCategorySearch" alignment="0" max="32767" attributes="0"/>
-                      <Component id="jLabelAuthorName1" alignment="0" max="32767" attributes="0"/>
-                  </Group>
               </Group>
               <EmptySpace min="-2" pref="168" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Component id="jButtonSearchAthor" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButtonCategoryCreate" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonCreateAthor" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="87" max="32767" attributes="0"/>
+              <EmptySpace pref="51" max="32767" attributes="0"/>
           </Group>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
@@ -50,23 +46,23 @@
               <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
               <Component id="JLabelCreateAuthor" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Component id="jLabelCategoryCreate" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextFieldCategoryCreate" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButtonCategoryCreate" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelAuthorName" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonCreateAthor" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jTextFieldCategoryName" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Component id="JLabelCreateAuthor1" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabelAuthorName1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jTextFieldCategorySearch" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelAuthorName1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonSearchAthor" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="45" max="32767" attributes="0"/>
-              <Component id="jScrollPane1" min="-2" pref="144" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jTextFieldCategory" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="16" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" min="-2" pref="159" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -75,38 +71,44 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabelAuthorName1">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Nom de la cat&#xe9;gorie"/>
+        <Property name="text" type="java.lang.String" value="jLabelCategory"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldCategorySearch">
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldCategorySearchActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="jButtonCategoryCreate">
+    <Component class="javax.swing.JTextField" name="jTextFieldCategory">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Ajouter"/>
+        <Property name="text" type="java.lang.String" value="jTextFieldCategory"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCategoryCreateActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldCategoryActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabelCategoryCreate">
+    <Component class="javax.swing.JButton" name="jButtonCreateAthor">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Nom de la cat&#xe9;gorie"/>
+        <Property name="text" type="java.lang.String" value="jButtonCreateCategory"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCreateAthorActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelAuthorName">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jLabelCategoryName"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="jButtonSearchAthor">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Rechercher"/>
+        <Property name="text" type="java.lang.String" value="jButtonSearchCategory"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonSearchAthorActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextFieldCategoryCreate">
+    <Component class="javax.swing.JTextField" name="jTextFieldCategoryName">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="jTextFieldCategoryName"/>
+      </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldCategoryCreateActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextFieldCategoryNameActionPerformed"/>
       </Events>
     </Component>
     <Container class="javax.swing.JScrollPane" name="jScrollPane1">
@@ -116,24 +118,15 @@
 
       <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
       <SubComponents>
-        <Component class="javax.swing.JTable" name="jTableCategoryList">
+        <Component class="javax.swing.JTable" name="jTableAuthor">
           <Properties>
             <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
-              <Table columnCount="1" rowCount="1">
-                <Column editable="true" title="Categorie" type="java.lang.Object"/>
+              <Table columnCount="4" rowCount="4">
+                <Column editable="true" title="Title 1" type="java.lang.Object"/>
+                <Column editable="true" title="Title 2" type="java.lang.Object"/>
+                <Column editable="true" title="Title 3" type="java.lang.Object"/>
+                <Column editable="true" title="Title 4" type="java.lang.Object"/>
               </Table>
-            </Property>
-            <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
-              <TableColumnModel selectionModel="0">
-                <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
-                  <Title/>
-                  <Editor/>
-                  <Renderer/>
-                </Column>
-              </TableColumnModel>
-            </Property>
-            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
-              <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
             </Property>
           </Properties>
         </Component>
@@ -144,7 +137,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Ajouter une cat&#xe9;gorie"/>
+        <Property name="text" type="java.lang.String" value="JLabelCreateCategory"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="JLabelCreateAuthor1">
@@ -152,7 +145,7 @@
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="14" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Rechercher une cat&#xe9;gorie"/>
+        <Property name="text" type="java.lang.String" value="JLabelSearchCategory"/>
       </Properties>
     </Component>
   </SubComponents>

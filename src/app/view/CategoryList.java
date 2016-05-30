@@ -5,34 +5,23 @@
  */
 package app.view;
 
-import app.App;
-import app.database.Database;
-import app.entity.AuthorEntity;
-import app.entity.CategoryEntity;
-import app.model.AuthorModel;
-import app.model.CategoryModel;
-import java.util.ArrayList;
-import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
-
 /**
  *
  * @author Tom
  */
 public class CategoryList extends javax.swing.JPanel {
-
 	MenuBar fen;
 
 	/**
 	 * Creates new form CategoryList
-	 *
 	 * @param fen
 	 */
 	public CategoryList(MenuBar fen) {
 		super();
 		initComponents();
-		this.fen = fen;
+		this.fen=fen;	 
 	}
+
 
 	/**
 	 * This method is called from within the constructor to initialize the form.
@@ -44,61 +33,66 @@ public class CategoryList extends javax.swing.JPanel {
   private void initComponents() {
 
     jLabelAuthorName1 = new javax.swing.JLabel();
-    jTextFieldCategorySearch = new javax.swing.JTextField();
-    jButtonCategoryCreate = new javax.swing.JButton();
-    jLabelCategoryCreate = new javax.swing.JLabel();
+    jTextFieldCategory = new javax.swing.JTextField();
+    jButtonCreateAthor = new javax.swing.JButton();
+    jLabelAuthorName = new javax.swing.JLabel();
     jButtonSearchAthor = new javax.swing.JButton();
-    jTextFieldCategoryCreate = new javax.swing.JTextField();
+    jTextFieldCategoryName = new javax.swing.JTextField();
     jScrollPane1 = new javax.swing.JScrollPane();
-    jTableCategoryList = new javax.swing.JTable();
+    jTableAuthor = new javax.swing.JTable();
     JLabelCreateAuthor = new javax.swing.JLabel();
     JLabelCreateAuthor1 = new javax.swing.JLabel();
 
-    jLabelAuthorName1.setText("Nom de la catégorie");
+    jLabelAuthorName1.setText("jLabelCategory");
 
-    jTextFieldCategorySearch.addActionListener(new java.awt.event.ActionListener() {
+    jTextFieldCategory.setText("jTextFieldCategory");
+    jTextFieldCategory.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
-        jTextFieldCategorySearchActionPerformed(evt);
+        jTextFieldCategoryActionPerformed(evt);
       }
     });
 
-    jButtonCategoryCreate.setText("Ajouter");
-    jButtonCategoryCreate.addActionListener(new java.awt.event.ActionListener() {
+    jButtonCreateAthor.setText("jButtonCreateCategory");
+    jButtonCreateAthor.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
-        jButtonCategoryCreateActionPerformed(evt);
+        jButtonCreateAthorActionPerformed(evt);
       }
     });
 
-    jLabelCategoryCreate.setText("Nom de la catégorie");
+    jLabelAuthorName.setText("jLabelCategoryName");
 
-    jButtonSearchAthor.setText("Rechercher");
+    jButtonSearchAthor.setText("jButtonSearchCategory");
     jButtonSearchAthor.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
         jButtonSearchAthorActionPerformed(evt);
       }
     });
 
-    jTextFieldCategoryCreate.addActionListener(new java.awt.event.ActionListener() {
+    jTextFieldCategoryName.setText("jTextFieldCategoryName");
+    jTextFieldCategoryName.addActionListener(new java.awt.event.ActionListener() {
       public void actionPerformed(java.awt.event.ActionEvent evt) {
-        jTextFieldCategoryCreateActionPerformed(evt);
+        jTextFieldCategoryNameActionPerformed(evt);
       }
     });
 
-    jTableCategoryList.setModel(new javax.swing.table.DefaultTableModel(
+    jTableAuthor.setModel(new javax.swing.table.DefaultTableModel(
       new Object [][] {
-        {null}
+        {null, null, null, null},
+        {null, null, null, null},
+        {null, null, null, null},
+        {null, null, null, null}
       },
       new String [] {
-        "Categorie"
+        "Title 1", "Title 2", "Title 3", "Title 4"
       }
     ));
-    jScrollPane1.setViewportView(jTableCategoryList);
+    jScrollPane1.setViewportView(jTableAuthor);
 
     JLabelCreateAuthor.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-    JLabelCreateAuthor.setText("Ajouter une catégorie");
+    JLabelCreateAuthor.setText("JLabelCreateCategory");
 
     JLabelCreateAuthor1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-    JLabelCreateAuthor1.setText("Rechercher une catégorie");
+    JLabelCreateAuthor1.setText("JLabelSearchCategory");
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
     this.setLayout(layout);
@@ -107,19 +101,17 @@ public class CategoryList extends javax.swing.JPanel {
       .addGroup(layout.createSequentialGroup()
         .addGap(21, 21, 21)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+          .addComponent(jLabelAuthorName)
+          .addComponent(jTextFieldCategoryName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jLabelAuthorName1)
+          .addComponent(jTextFieldCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
           .addComponent(JLabelCreateAuthor1)
-          .addComponent(JLabelCreateAuthor)
-          .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-            .addComponent(jTextFieldCategoryCreate, javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelCategoryCreate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-          .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-            .addComponent(jTextFieldCategorySearch, javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelAuthorName1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+          .addComponent(JLabelCreateAuthor))
         .addGap(168, 168, 168)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
           .addComponent(jButtonSearchAthor)
-          .addComponent(jButtonCategoryCreate))
-        .addContainerGap(87, Short.MAX_VALUE))
+          .addComponent(jButtonCreateAthor))
+        .addContainerGap(51, Short.MAX_VALUE))
       .addGroup(layout.createSequentialGroup()
         .addContainerGap()
         .addComponent(jScrollPane1)
@@ -131,100 +123,52 @@ public class CategoryList extends javax.swing.JPanel {
         .addGap(19, 19, 19)
         .addComponent(JLabelCreateAuthor)
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-        .addComponent(jLabelCategoryCreate)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-          .addComponent(jTextFieldCategoryCreate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-          .addComponent(jButtonCategoryCreate))
-        .addGap(28, 28, 28)
+          .addComponent(jLabelAuthorName)
+          .addComponent(jButtonCreateAthor))
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addComponent(jTextFieldCategoryName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addGap(30, 30, 30)
         .addComponent(JLabelCreateAuthor1)
         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-        .addComponent(jLabelAuthorName1)
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-          .addComponent(jTextFieldCategorySearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+          .addComponent(jLabelAuthorName1)
           .addComponent(jButtonSearchAthor))
-        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
-        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+        .addComponent(jTextFieldCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
+        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE)
         .addContainerGap())
     );
   }// </editor-fold>//GEN-END:initComponents
 
-  private void jTextFieldCategorySearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCategorySearchActionPerformed
-		// TODO add your handling code here:
-  }//GEN-LAST:event_jTextFieldCategorySearchActionPerformed
+  private void jTextFieldCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCategoryActionPerformed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_jTextFieldCategoryActionPerformed
 
-  private void jButtonCategoryCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCategoryCreateActionPerformed
-		Database db = App.getDb();
-
-		String label;
-		CategoryModel createCategory = new CategoryModel(db);
-
-		label = jTextFieldCategoryCreate.getText().trim();
-
-		if (label.equalsIgnoreCase("")) {
-			// cas où les champs sont vides
-			JOptionPane.showMessageDialog(fen, "Veuillez remplir le champ proposé");
-		} else if (label.length() >= 1) {
-			createCategory.createCategory(label);
-		}
-  }//GEN-LAST:event_jButtonCategoryCreateActionPerformed
+  private void jButtonCreateAthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCreateAthorActionPerformed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_jButtonCreateAthorActionPerformed
 
   private void jButtonSearchAthorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchAthorActionPerformed
-		Database db = App.getDb();
-
-		String label;
-		CategoryModel searchLabel = new CategoryModel(db);
-		ArrayList<CategoryEntity> categories = new ArrayList<>();
-
-		// vide le JTable à chaque recherche avant affichage résultat
-		DefaultTableModel tableModel = (DefaultTableModel) jTableCategoryList.getModel();
-		while (tableModel.getRowCount() > 0) {
-			tableModel.removeRow(0);
-		}
-
-		// récupération données
-		label = jTextFieldCategorySearch.getText().trim();
-
-		if (label.equalsIgnoreCase("")) {
-			// cas où les champs sont vides
-			JOptionPane.showMessageDialog(fen, "Veuillez remplir le champ proposé");
-		} else if (label.length() >= 1) {
-
-			categories = searchLabel.searchLabel(label);
-
-			if (categories.isEmpty()) {
-				JOptionPane.showMessageDialog(fen, "Aucune categorie correspondante");
-			}
-
-		}
-		if (categories.isEmpty()) {
-			JOptionPane.showMessageDialog(fen, "Aucune categorie correspondante");
-		}
-
-		for (int i = 0; i < categories.size(); i++) {
-			String nom = categories.get(i).getName();
-	
-			Object[] data = {nom};
-			tableModel.addRow(data);
-		}
+    // TODO add your handling code here:
   }//GEN-LAST:event_jButtonSearchAthorActionPerformed
 
-  private void jTextFieldCategoryCreateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCategoryCreateActionPerformed
-		// TODO add your handling code here:
-  }//GEN-LAST:event_jTextFieldCategoryCreateActionPerformed
+  private void jTextFieldCategoryNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCategoryNameActionPerformed
+    // TODO add your handling code here:
+  }//GEN-LAST:event_jTextFieldCategoryNameActionPerformed
 
 
   // Variables declaration - do not modify//GEN-BEGIN:variables
   private javax.swing.JLabel JLabelCreateAuthor;
   private javax.swing.JLabel JLabelCreateAuthor1;
-  private javax.swing.JButton jButtonCategoryCreate;
+  private javax.swing.JButton jButtonCreateAthor;
   private javax.swing.JButton jButtonSearchAthor;
+  private javax.swing.JLabel jLabelAuthorName;
   private javax.swing.JLabel jLabelAuthorName1;
-  private javax.swing.JLabel jLabelCategoryCreate;
   private javax.swing.JScrollPane jScrollPane1;
-  private javax.swing.JTable jTableCategoryList;
-  private javax.swing.JTextField jTextFieldCategoryCreate;
-  private javax.swing.JTextField jTextFieldCategorySearch;
+  private javax.swing.JTable jTableAuthor;
+  private javax.swing.JTextField jTextFieldCategory;
+  private javax.swing.JTextField jTextFieldCategoryName;
   // End of variables declaration//GEN-END:variables
 }

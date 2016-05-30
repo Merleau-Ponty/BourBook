@@ -2,7 +2,7 @@ package app.controller;
 
 import javax.swing.JFrame;
 
-import app.App;
+import app.main.App;
 import app.view.BookCreate;
 import app.view.BookList;
 import app.view.MenuBar;
