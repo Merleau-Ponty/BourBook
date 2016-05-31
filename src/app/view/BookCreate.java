@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 import javax.swing.JOptionPane;
 
-import app.App;
+import app.main.App;
 import app.database.Database;
 import app.entity.AuthorEntity;
 import app.entity.BookEntity;
@@ -336,16 +336,16 @@ public class BookCreate extends javax.swing.JPanel implements ActionListener {
 		resume = jTextArea1.getText();
 		try {
 			author = (AuthorEntity) jComboBoxAuthor.getSelectedItem();
-			BookEntity book = new BookEntity(author, resume, isbn, titre, nbPages);
-			System.out.println(book);
-			bookDAO.insertBook(book);
+//			BookEntity book = new BookEntity(author, resume, isbn, titre, nbPages);
+//			System.out.println(book);
+//			bookDAO.insertBook(book);
 		} catch (Exception e) {
 			System.out.println(e.getStackTrace());
 			String lastName = jTextFieldAuthorName.getText().trim();
 			String firstName = jTextFieldAuthorFirstName.getText().trim();
 			author = new AuthorEntity(lastName, firstName);
-			BookEntity book = new BookEntity(author, resume, isbn, titre, nbPages);
-			bookDAO.insertBookWithNewAuthor(book, author);
+//			BookEntity book = new BookEntity(author, resume, isbn, titre, nbPages);
+//			bookDAO.insertBookWithNewAuthor(book, author);
 		}
 		//System.out.println(author);
 		/*
